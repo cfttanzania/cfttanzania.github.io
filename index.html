@@ -234,6 +234,46 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
 .ferr{color:#b3261e;font-size:14px;margin-top:10px;min-height:1em}
 .row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-top:16px}
 
+/* news from firestore */
+.ncard img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px;margin-bottom:14px}
+.ncard .when{font-size:13px;color:var(--muted);margin-top:8px}
+.ncard p.body{white-space:pre-line}
+/* forms */
+.cform{background:var(--cream);border-radius:14px;padding:26px;width:100%}
+.cform h3{font-size:24px;color:var(--green-d);margin-bottom:4px}
+textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:15px Inter;background:#fff;min-height:110px;resize:vertical}
+.cform input,.cform select{background:#fff}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fok{color:var(--green);font-weight:600;font-size:14px;margin-top:10px;min-height:1em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+/* members tabs */
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin:4px 0 18px;overflow-x:auto}
+.tabs button{background:none;border:0;padding:10px 14px;font:700 14px Inter;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tabs button.on{color:var(--green-d);border-bottom-color:var(--orange)}
+.badge{display:inline-block;min-width:20px;padding:1px 6px;border-radius:999px;background:var(--orange);color:#fff;font-size:11px;margin-left:4px}
+.msg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px;background:#fff}
+.msg.new{border-left:4px solid var(--orange)}
+.msg .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.msg .kind{font:800 11px var(--hd);letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.msg .date{font-size:12px;color:var(--muted)}
+.msg b{font-size:16px;color:var(--green-d)}
+.msg .meta{font-size:13.5px;color:var(--muted);margin:4px 0 8px}
+.msg .meta a{color:var(--green);font-weight:600}
+.msg p{font-size:14.5px;white-space:pre-line;margin-bottom:10px}
+.msg .acts{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:600 13px Inter;cursor:pointer;color:var(--ink);text-decoration:none}
+.chip.on{background:var(--green-d);color:#fff;border-color:var(--green-d)}
+.chip.danger{color:#b3261e}
+.empty-s{color:var(--muted);font-size:14px;padding:12px 0}
+.mine{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:10px 0}
+.mine img{width:56px;height:42px;object-fit:cover;border-radius:6px}
+.mine div{flex:1;font-size:14px}
+/* whatsapp */
+.wa{position:fixed;left:16px;bottom:86px;z-index:70;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.22);text-decoration:none}
+.wa svg{width:30px;height:30px;fill:#fff}
+@media (min-width:1021px){.wa{bottom:22px}}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+
 /* app bits */
 .install{position:fixed;right:16px;bottom:86px;z-index:70;box-shadow:0 10px 30px rgba(0,0,0,.2)}
 .tabbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:none;justify-content:space-around;padding:8px 0 calc(8px + env(safe-area-inset-bottom));z-index:75}
@@ -274,7 +314,7 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
 </head>
 <body>
 
-<div class="announce"><div class="wrap"><span data-i="ann">Registered NGO in Mwanza, Tanzania · Reg. No. 00NGO/R/10502</span><a href="#involved" data-i="annBtn">Partner with us</a></div></div>
+<div class="announce"><div class="wrap"><span data-i="ann">Registered NGO serving communities across Tanzania · Reg. No. 00NGO/R/10502</span><a href="#involved" data-i="annBtn">Partner with us</a></div></div>
 
 <header>
   <div class="util"><div class="wrap">
@@ -366,7 +406,7 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
   <div class="v"><div class="n">01</div><h3 data-i="v1T">Rooted in communities</h3><p data-i="v1P">Our founding members work with villages and schools next to Tanzania's protected areas.</p></div>
   <div class="v"><div class="n">02</div><h3 data-i="v2T">Conservation experience</h3><p data-i="v2P">Field ecology, GIS mapping, tourism and problem-animal management, with some members serving for over 20 years.</p></div>
   <div class="v"><div class="n">03</div><h3 data-i="v3T">People and nature together</h3><p data-i="v3P">We link wildlife protection with farming, livelihoods, education and gender equality.</p></div>
-  <div class="v"><div class="n">04</div><h3 data-i="v4T">Registered and accountable</h3><p data-i="v4P">A registered NGO (00NGO/R/10502) based in Buhongwa, Mwanza.</p></div>
+  <div class="v"><div class="n">04</div><h3 data-i="v4T">Registered and accountable</h3><p data-i="v4P">A registered NGO (00NGO/R/10502) working across Tanzania, with its head office in Mwanza.</p></div>
 </div></div>
 
 <!-- MISSION -->
@@ -457,7 +497,8 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
   <div class="wrap">
     <div class="kicker" data-i="newsK">Stay updated</div>
     <h2 class="h2" data-i="newsT">News &amp; Events</h2>
-    <div class="ngrid">
+    <div class="ngrid hidden" id="newsGrid"></div>
+    <div class="ngrid" id="newsPh">
       <div class="ncard"><div class="lbl" data-i="nL1">News</div><h3 data-i="nT1">Stories coming soon</h3><p data-i="nP1">Updates from our programmes will be published here.</p></div>
       <div class="ncard"><div class="lbl" data-i="nL2">Events</div><h3 data-i="nT2">Upcoming activities</h3><p data-i="nP2">Community meetings, school visits and field days will be announced here.</p></div>
       <div class="ncard"><div class="lbl" data-i="nL3">Contact</div><h3 data-i="nT3">Want to hear from us?</h3><p data-i="nP3">Email us and we will share news of our work.</p></div>
@@ -475,7 +516,7 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
       <div class="tm"><div class="pic"><img src="img/happy.jpg" alt="Happy Frank Mollel" loading="lazy"></div><h3>Happy Frank Mollel</h3><p data-i="b1">Conserves wildlife through ecological monitoring and field-based assessments, and supervises tourism in protected areas. Gives conservation education to villagers next to protected areas and to students in nearby schools.</p></div>
       <div class="tm"><div class="pic"><img src="img/daud.jpg" alt="Daud Gunda" loading="lazy"></div><h3>Daud Gunda</h3><p data-i="b2">Carries out wildlife ecology and tourism work, including ecological assessment and monitoring, and produces GIS maps and spatial data for conservation planning. Develops wildlife teaching aids and gives conservation education to communities and students.</p></div>
       <div class="tm"><div class="pic"><img src="img/marry.jpg" alt="Marry Stephen" loading="lazy"></div><h3>Marry Stephen</h3><p data-i="b3">Supports wildlife conservation and habitat protection through fieldwork and community engagement, and assists in controlling problem animals. Teaches villagers and school students practices that reduce human-wildlife conflict.</p></div>
-      <div class="tm"><div class="pic">VM</div><h3>Vaileth Priscus Mvungi</h3><div class="role" data-i="rAcc">Accountant</div><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
+      <div class="tm"><div class="pic"><img src="img/vaileth.jpg" alt="Vaileth Priscus Mvungi" loading="lazy"></div><h3>Vaileth Priscus Mvungi</h3><div class="role" data-i="rAcc">Accountant</div><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
       <div class="tm"><div class="pic">ZK</div><h3>Ziada Ally Kahando</h3><p data-i="b5">More than 20 years in wildlife conservation, community conservation education and problem-animal control. Over four years in the store keeping unit at Malihai Clubs of Tanzania – Lake Zone.</p></div>
       <div class="tm"><div class="pic"><img src="img/geofrey.jpg" alt="Geofrey Raphael Malegesi" loading="lazy"></div><h3>Geofrey Raphael Malegesi</h3><div class="role" data-i="rDir">Director</div><p data-i="b6">Supports wildlife conservation and habitat protection through field activities and community engagement, and assists in controlling problem animals. Gives conservation education to villagers and school students.</p></div>
       <div class="tm"><div class="pic">HD</div><h3>Hidaya Hamis Danda</h3><div class="role" data-i="rOps">Operations Manager</div><p data-i="b7">Works in conservation fieldwork, community education and problem-animal control. Most of her work focuses on empowering women and children living near game reserves.</p></div>
@@ -492,8 +533,8 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
     <p class="big" data-i="invBig">Protect wildlife. Grow food. Educate children. Do it with us.</p>
     <p class="lead" data-i="invP">There are many ways to support our work for wildlife, communities and children.</p>
     <div class="ways">
-      <div class="way"><div class="ic">🙋</div><h3 data-i="w1T">Volunteer</h3><p data-i="w1P">Give your time and skills to conservation, farming and education activities.</p><span class="soon" data-i="soon">Details coming soon</span></div>
-      <div class="way"><div class="ic">🤝</div><h3 data-i="w2T">Partner with us</h3><p data-i="w2P">Organisations, schools and government bodies can work with us on shared goals.</p><span class="soon" data-i="soon">Details coming soon</span></div>
+      <div class="way"><div class="ic">🙋</div><h3 data-i="w1T">Volunteer</h3><p data-i="w1P">Give your time and skills to conservation, farming and education activities.</p><button class="btn white sm" style="margin-top:16px" onclick="openForm('volunteer')" data-i="w1B">Sign up to volunteer</button></div>
+      <div class="way"><div class="ic">🤝</div><h3 data-i="w2T">Partner with us</h3><p data-i="w2P">Organisations, schools and government bodies can work with us on shared goals.</p><button class="btn white sm" style="margin-top:16px" onclick="openForm('partner')" data-i="w2B">Become a partner</button></div>
       <div class="way"><div class="ic">💚</div><h3 data-i="w3T">Donate</h3><p data-i="w3P">Your support will reach communities directly. Donation channels will be published here once verified.</p><span class="soon" data-i="soon">Details coming soon</span></div>
     </div>
   </div>
@@ -506,16 +547,54 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
       <div class="kicker" data-i="conK">Contact</div>
       <h2 class="h2" data-i="conT">Find us</h2>
       <dl>
-        <dt data-i="dAddr">Address</dt><dd>West Buhongwa Street, Buhongwa Ward, Nyamagana District, Mwanza Region, Tanzania</dd>
+        <dt data-i="dAddr">Head office</dt><dd>West Buhongwa Street, Buhongwa Ward, Nyamagana District, Mwanza Region, Tanzania</dd>
         <dt data-i="dPost">Post</dt><dd>P.O. Box 11760, Mwanza</dd>
         <dt data-i="dEmail">Email</dt><dd><a href="mailto:charityfoundationtanzaniacft@gmail.com">charityfoundationtanzaniacft@gmail.com</a></dd>
         <dt data-i="dReg">Registration</dt><dd>00NGO/R/10502</dd>
       </dl>
       <a class="btn" href="mailto:charityfoundationtanzaniacft@gmail.com?subject=Message%20from%20CFT%20website" data-i="emailUs">✉️ Email us</a>
     </div>
-    <img class="logo" src="img/logo.jpg" alt="Charity Foundation CFT Tanzania logo" loading="lazy">
+    <form class="cform" id="contactForm" onsubmit="event.preventDefault();sendForm(this)">
+      <input type="hidden" name="type" value="contact">
+      <h3 data-i="cfT">Send us a message</h3>
+      <p style="color:var(--muted);font-size:14.5px;margin-bottom:6px" data-i="cfP">We usually reply within a few days.</p>
+      <div class="two">
+        <div><label data-i="fName">Full name</label><input name="name" required maxlength="100"></div>
+        <div><label data-i="fPhone">Phone / WhatsApp</label><input name="phone" type="tel" required maxlength="30" placeholder="07XX XXX XXX"></div>
+      </div>
+      <label data-i="fEmail">Email (optional)</label><input name="email" type="email" maxlength="120">
+      <label data-i="fMsg">Message</label><textarea name="message" required maxlength="2000"></textarea>
+      <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+      <button class="btn" style="margin-top:14px" type="submit" data-i="send">Send message</button>
+      <p class="fok"></p>
+    </form>
   </div>
 </section>
+
+<!-- SIGN-UP FORM MODAL -->
+<div class="modal" id="formModal" onclick="if(event.target===this)closeForm()">
+  <div class="mbox">
+    <button class="x" onclick="closeForm()" aria-label="Close">×</button>
+    <form id="signupForm" onsubmit="event.preventDefault();sendForm(this)">
+      <input type="hidden" name="type" value="volunteer">
+      <div class="kicker" data-i="mInv">Get involved</div>
+      <h2 id="fmTitle">Volunteer</h2>
+      <p id="fmLead" style="color:var(--muted);font-size:15px;margin:6px 0 6px"></p>
+      <div class="two">
+        <div><label data-i="fName">Full name</label><input name="name" required maxlength="100"></div>
+        <div><label data-i="fPhone">Phone / WhatsApp</label><input name="phone" type="tel" required maxlength="30" placeholder="07XX XXX XXX"></div>
+      </div>
+      <div class="two">
+        <div><label data-i="fEmail">Email (optional)</label><input name="email" type="email" maxlength="120"></div>
+        <div><label id="fmLoc" data-i="fLoc">Where are you based?</label><input name="location" maxlength="120"></div>
+      </div>
+      <label id="fmMsgL">How would you like to help?</label><textarea name="message" required maxlength="2000"></textarea>
+      <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+      <button class="btn" style="margin-top:14px" type="submit" data-i="send">Send</button>
+      <p class="fok"></p>
+    </form>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -568,6 +647,12 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
     </div>
     <div id="dash" class="hidden">
       <div class="dash-top"><h3 style="font-size:22px;color:var(--green-d)"><span data-i="welcome">Welcome</span>, <span id="who"></span></h3><button class="btn outline sm" onclick="logout()" data-i="signOut">Sign out</button></div>
+      <div class="tabs hidden" id="tabs">
+        <button class="on" data-tab="pContrib" onclick="tab(this)" data-i="tbC">Contributions</button>
+        <button data-tab="pInbox" onclick="tab(this)"><span data-i="tbI">Inbox</span> <span class="badge hidden" id="inBadge">0</span></button>
+        <button data-tab="pPost" onclick="tab(this)" data-i="tbP">Post news</button>
+      </div>
+      <div id="pContrib">
       <div class="kpis">
         <div class="kpi"><span data-i="k1">Total contributions</span><b id="kTotal">TSh 0</b></div>
         <div class="kpi"><span data-i="k2">Your contributions</span><b id="kMine">TSh 0</b></div>
@@ -578,10 +663,39 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
         <div><label data-i="purpose">Purpose</label><select id="cPur"><option value="monthly" data-i="oMonthly">Monthly contribution</option><option value="project" data-i="oProject">Project fund</option><option value="emergency" data-i="oEmergency">Emergency support</option></select></div>
         <button class="btn" onclick="addContribution()" data-i="add">Add</button>
       </div>
+      </div>
+      <div id="pInbox" class="hidden">
+        <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+          <button class="chip on" data-f="new" onclick="inFilter(this)" data-i="fNew">New</button>
+          <button class="chip" data-f="all" onclick="inFilter(this)" data-i="fAll">All</button>
+          <button class="chip" data-f="volunteer" onclick="inFilter(this)" data-i="kVol">Volunteers</button>
+          <button class="chip" data-f="partner" onclick="inFilter(this)" data-i="kPar">Partners</button>
+          <button class="chip" data-f="contact" onclick="inFilter(this)" data-i="kCon">Messages</button>
+        </div>
+        <div id="inList"></div>
+      </div>
+      <div id="pPost" class="hidden">
+        <form id="postForm" onsubmit="event.preventDefault();window.fbPost&&fbPost()">
+          <div class="two">
+            <div><label data-i="pKind">Type</label><select id="pKind" onchange="document.getElementById('pDateW').classList.toggle('hidden',this.value!=='event')"><option value="news" data-i="nL1">News</option><option value="event" data-i="nL2">Events</option></select></div>
+            <div id="pDateW" class="hidden"><label data-i="pDate">Event date</label><input id="pDate" type="date"></div>
+          </div>
+          <label data-i="pTitle">Title (English)</label><input id="pTitle" required maxlength="200">
+          <label data-i="pBody">Text (English)</label><textarea id="pBody" required maxlength="5000"></textarea>
+          <label data-i="pTitleSw">Title in Kiswahili (optional)</label><input id="pTitleSw" maxlength="200">
+          <label data-i="pBodySw">Text in Kiswahili (optional)</label><textarea id="pBodySw" maxlength="5000" style="min-height:80px"></textarea>
+          <label data-i="pImg">Photo (optional)</label><input id="pImg" type="file" accept="image/*">
+          <button class="btn" style="margin-top:16px" type="submit" id="pBtn" data-i="pPub">Publish</button>
+          <p class="fok" id="pMsg"></p>
+        </form>
+        <h3 style="font-size:18px;color:var(--green-d);margin:22px 0 6px" data-i="pMine">Published</h3>
+        <div id="pList"></div>
+      </div>
     </div>
   </div>
 </div>
 
+<a class="wa hidden" id="waBtn" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.5.7 4.9 2 7L3 29l6.5-2.1c2 1.1 4.2 1.7 6.5 1.7 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6.1C5 9.9 9.9 5.1 16 5.1S27 9.9 27 15.9s-5 10.3-11 10.3zm6-7.7c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1.1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2 2.9 1.1 3.5.9 4.1.8.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg></a>
 <button class="btn install hidden" id="installBtn" data-i="install">📲 Install app</button>
 
 <nav class="tabbar">
@@ -595,7 +709,7 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
 <script src="firebase-config.js"></script>
 <script>
 const SW = {
-  ann:"Shirika lisilo la kiserikali lililosajiliwa, Mwanza, Tanzania · Na. 00NGO/R/10502", annBtn:"Shirikiana nasi",
+  ann:"Shirika lisilo la kiserikali linalohudumia jamii kote Tanzania · Na. 00NGO/R/10502", annBtn:"Shirikiana nasi",
   memLogin:"👤 Wanachama: Ingia",
   mWhat:"Tunachofanya", mWhatP:"Maeneo matano ya programu yanayobeba malengo yetu manane.",
   pr1S:"Wanyamapori na tabianchi", pr2S:"Kilimo kinachohimili tabianchi", pr3S:"Uwezeshaji wa wanawake na vijana", pr4S:"Elimu na ulinzi wa mtoto", pr5S:"Msaada kwa watoto na vijana", nField:"Kutoka uwandani",
@@ -607,7 +721,7 @@ const SW = {
   v1T:"Tumejikita katika jamii", v1P:"Wanachama waanzilishi wanafanya kazi na vijiji na shule zilizo jirani na maeneo yaliyohifadhiwa nchini Tanzania.",
   v2T:"Uzoefu katika uhifadhi", v2P:"Ikolojia ya uwandani, ramani za GIS, utalii na udhibiti wa wanyama wakorofi, huku baadhi ya wanachama wakiwa na uzoefu wa zaidi ya miaka 20.",
   v3T:"Watu na mazingira pamoja", v3P:"Tunaunganisha ulinzi wa wanyamapori na kilimo, kipato, elimu na usawa wa kijinsia.",
-  v4T:"Tumesajiliwa na tunawajibika", v4P:"Shirika lisilo la kiserikali lililosajiliwa (00NGO/R/10502) lenye makao Buhongwa, Mwanza.",
+  v4T:"Tumesajiliwa na tunawajibika", v4P:"Shirika lisilo la kiserikali lililosajiliwa (00NGO/R/10502) linalofanya kazi kote Tanzania, lenye ofisi kuu Mwanza.",
   misK:"Dhamira yetu",
   misS:'Tunafanya kazi kwa ajili ya <a href="#programmes">wanyamapori na maliasili</a>, <a href="#programmes">kilimo kinachohimili tabianchi</a>, <a href="#programmes">jamii zilizowezeshwa</a>, <a href="#programmes">elimu</a> na <a href="#programmes">ulinzi wa mtoto</a>.',
   seeObj:"Soma malengo yetu",
@@ -652,7 +766,7 @@ const SW = {
   w2T:"Shirikiana nasi", w2P:"Mashirika, shule na taasisi za serikali zinaweza kushirikiana nasi katika malengo ya pamoja.",
   w3T:"Changia", w3P:"Mchango wako utazifikia jamii moja kwa moja. Njia za kuchangia zitawekwa hapa baada ya kuthibitishwa.",
   soon:"Taarifa zinakuja hivi karibuni",
-  conK:"Mawasiliano", conT:"Tupate", dAddr:"Anwani", dPost:"Sanduku la Posta", dEmail:"Barua pepe", dReg:"Usajili", emailUs:"✉️ Tutumie barua pepe",
+  conK:"Mawasiliano", conT:"Tupate", dAddr:"Ofisi kuu", dPost:"Sanduku la Posta", dEmail:"Barua pepe", dReg:"Usajili", emailUs:"✉️ Tutumie barua pepe",
   footAbout:"Pamoja kwa uhifadhi wa wanyamapori, jamii imara na mustakabali endelevu.", madeTz:"Mwanza, Tanzania",
   memK:"Kwa wanachama wa CFT", memT:"Eneo la Wanachama",
   emailL:"Barua pepe", pwL:"Nenosiri", forgot:"Umesahau nenosiri?", nameNeed:"Jina lako kamili (litaonekana pamoja na michango yako)", save:"Hifadhi",
@@ -661,7 +775,11 @@ const SW = {
   yourName:"Jina lako", pin:"PIN ya mwanachama", signIn:"Ingia", signOut:"Toka", welcome:"Karibu",
   k1:"Jumla ya michango", k2:"Michango yako", thDate:"Tarehe", thMember:"Mwanachama", thPurpose:"Madhumuni", thAmount:"Kiasi",
   amount:"Kiasi (TSh)", purpose:"Madhumuni", oMonthly:"Mchango wa mwezi", oProject:"Mfuko wa mradi", oEmergency:"Msaada wa dharura", add:"Ongeza",
-  install:"📲 Pakua programu", rDir:"Mkurugenzi", rOps:"Meneja wa Uendeshaji", rAcc:"Mhasibu", tHome:"Mwanzo", tProg:"Programu", tField:"Uwandani", tInv:"Jiunge", tMem:"Wanachama"
+  install:"📲 Pakua programu",
+  w1B:"Jisajili kujitolea", w2B:"Kuwa mshirika", cfT:"Tutumie ujumbe", cfP:"Kwa kawaida tunajibu ndani ya siku chache.",
+  fName:"Jina kamili", fPhone:"Simu / WhatsApp", fEmail:"Barua pepe (si lazima)", fMsg:"Ujumbe", fLoc:"Unaishi wapi?", send:"Tuma",
+  tbC:"Michango", tbI:"Ujumbe", tbP:"Weka habari", fNew:"Mpya", fAll:"Zote", kVol:"Wanaojitolea", kPar:"Washirika", kCon:"Ujumbe",
+  pKind:"Aina", pDate:"Tarehe ya tukio", pTitle:"Kichwa (Kiingereza)", pBody:"Maelezo (Kiingereza)", pTitleSw:"Kichwa kwa Kiswahili (si lazima)", pBodySw:"Maelezo kwa Kiswahili (si lazima)", pImg:"Picha (si lazima)", pPub:"Chapisha", pMine:"Zilizochapishwa", rDir:"Mkurugenzi", rOps:"Meneja wa Uendeshaji", rAcc:"Mhasibu", tHome:"Mwanzo", tProg:"Programu", tField:"Uwandani", tInv:"Jiunge", tMem:"Wanachama"
 };
 const PURPOSE={en:{monthly:"Monthly contribution",project:"Project fund",emergency:"Emergency support"},sw:{monthly:"Mchango wa mwezi",project:"Mfuko wa mradi",emergency:"Msaada wa dharura"}};
 let lang="en", user=null;
@@ -702,6 +820,40 @@ function renderRows(){
   document.getElementById('kMine').textContent=fmt(contribs.filter(c=>c.m===user).reduce((s,c)=>s+c.a,0));
 }
 
+// sign-up + contact forms
+const FORMTXT={
+  volunteer:{en:['Volunteer','Tell us a little about yourself and how you would like to help. We will contact you.','How would you like to help?'],
+             sw:['Jitolee','Tueleze kidogo kukuhusu na jinsi ungependa kusaidia. Tutawasiliana nawe.','Ungependa kusaidia vipi?']},
+  partner:{en:['Partner with us','Organisations, schools and government bodies: tell us about your organisation and the work you would like to do together.','Organisation and ideas for working together'],
+           sw:['Shirikiana nasi','Mashirika, shule na taasisi za serikali: tueleze kuhusu taasisi yako na kazi mngependa kufanya pamoja nasi.','Taasisi na mawazo ya kushirikiana']}
+};
+function openForm(kind){
+  const f=document.getElementById('signupForm'); f.type.value=kind; f.querySelector('.fok').textContent='';
+  const t=FORMTXT[kind][lang]||FORMTXT[kind].en;
+  document.getElementById('fmTitle').textContent=t[0]; document.getElementById('fmLead').textContent=t[1]; document.getElementById('fmMsgL').textContent=t[2];
+  const loc=f.location; document.getElementById('fmLoc').textContent=kind==='partner'?(lang==='sw'?'Jina la taasisi':'Organisation name'):(lang==='sw'?'Unaishi wapi?':'Where are you based?');
+  loc.placeholder=kind==='partner'?(lang==='sw'?'mf. Shule ya Msingi Buhongwa':'e.g. Buhongwa Primary School'):(lang==='sw'?'mf. Dodoma':'e.g. Dodoma');
+  document.getElementById('formModal').classList.add('on');
+}
+function closeForm(){document.getElementById('formModal').classList.remove('on')}
+async function sendForm(f){
+  const ok=f.querySelector('.fok'), btn=f.querySelector('button[type=submit]');
+  if(f.website.value){ok.textContent='✓';f.reset();return}
+  if(!window.fbSendMessage){ok.style.color='#b3261e';ok.textContent=lang==='sw'?'Kutuma kunapatikana kwenye tovuti halisi tu.':'Sending works on the live website only.';return}
+  btn.disabled=true; ok.style.color=''; ok.textContent=lang==='sw'?'Inatuma…':'Sending…';
+  try{
+    await window.fbSendMessage({type:f.type.value,name:f.name.value.trim(),phone:f.phone.value.trim(),email:(f.email.value||'').trim(),location:(f.location?f.location.value:'').trim(),message:f.message.value.trim()});
+    f.reset(); ok.textContent=lang==='sw'?'✓ Asante! Ujumbe wako umetumwa. Tutawasiliana nawe hivi karibuni.':'✓ Thank you! Your message has been sent. We will get back to you soon.';
+    if(f.id==='signupForm') setTimeout(closeForm,2500);
+  }catch(e){ok.style.color='#b3261e';ok.textContent=lang==='sw'?'Imeshindikana kutuma. Angalia mtandao kisha ujaribu tena.':'Could not send. Check your internet and try again.'}
+  btn.disabled=false;
+}
+function tab(b){document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));['pContrib','pInbox','pPost'].forEach(id=>document.getElementById(id).classList.toggle('hidden',id!==b.dataset.tab))}
+function inFilter(b){document.querySelectorAll('#pInbox .chip[data-f]').forEach(x=>x.classList.toggle('on',x===b));window.inboxFilter=b.dataset.f;window.renderInbox&&renderInbox()}
+// WhatsApp button
+(function(){const n=(window.CFT_WHATSAPP||'').replace(/\D/g,''); if(n){const a=document.getElementById('waBtn'); a.href='https://wa.me/'+n+'?text='+encodeURIComponent('Habari CFT, '); a.classList.remove('hidden')}})();
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeForm()});
+
 // installable app
 let deferred=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;document.getElementById('installBtn').classList.remove('hidden')});
@@ -725,7 +877,7 @@ if(store('cft-lang')==='sw') setLang('sw'); else {document.querySelector('.den')
 const saved=store('cft-user'); if(saved){user=saved; showDash()}
 </script>
 <script type="module">
-// Shared members area (Firebase). Runs only when firebase-config.js has real settings.
+// Live features (Firebase): members' contributions, public news, sign-up/contact messages, admin inbox and news posting.
 const cfg = window.CFT_FIREBASE;
 if (cfg && cfg.apiKey) {
   const V = 'https://www.gstatic.com/firebasejs/10.12.2/';
@@ -736,9 +888,11 @@ if (cfg && cfg.apiKey) {
     const app = initializeApp(cfg), auth = A.getAuth(app), db = F.getFirestore(app);
     const $ = id => document.getElementById(id);
     const T = (en, sw) => (lang === 'sw' ? sw : en);
-    let rows = [], me = null, unsub = null;
+    const ADMINS = (window.CFT_ADMINS || []).map(e => e.toLowerCase());
+    let rows = [], me = null, isAdmin = false, unsubs = [], inbox = [], news = [];
+    window.inboxFilter = 'new';
 
-    // switch UI to live mode
+    // ---------- switch members UI to live mode ----------
     $('demoLogin').classList.add('hidden'); $('fbLogin').classList.remove('hidden');
     const note = document.querySelector('.demo-note');
     note.dataset.i = 'liveNote';
@@ -746,6 +900,7 @@ if (cfg && cfg.apiKey) {
     note.innerHTML = lang === 'sw' ? SW.liveNote : note.dataset.en;
     try { localStorage.removeItem('cft-user'); } catch (e) {}
 
+    const fmtDate = ts => { try { const d = ts && ts.toDate ? ts.toDate() : null; return d ? d.toLocaleDateString(lang === 'sw' ? 'sw-TZ' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : ''; } catch (e) { return ''; } };
     const errText = c => ({
       'auth/invalid-credential': T('Wrong email or password.', 'Barua pepe au nenosiri si sahihi.'),
       'auth/wrong-password': T('Wrong email or password.', 'Barua pepe au nenosiri si sahihi.'),
@@ -755,6 +910,28 @@ if (cfg && cfg.apiKey) {
       'auth/invalid-email': T('Enter a valid email.', 'Weka barua pepe sahihi.'),
     }[c] || T('Something went wrong. Please try again.', 'Hitilafu imetokea. Tafadhali jaribu tena.'));
 
+    // ---------- public: messages from visitors ----------
+    window.fbSendMessage = d => F.addDoc(F.collection(db, 'messages'), {
+      type: d.type, name: d.name.slice(0, 100), phone: d.phone.slice(0, 30), email: d.email.slice(0, 120),
+      location: d.location.slice(0, 120), message: d.message.slice(0, 2000), lang, read: false, created: F.serverTimestamp()
+    });
+
+    // ---------- public: news & events ----------
+    const pick = (n, k) => (lang === 'sw' && n[k + 'Sw']) ? n[k + 'Sw'] : n[k];
+    window.renderNews = () => {
+      const g = $('newsGrid');
+      if (!news.length) { g.classList.add('hidden'); $('newsPh').classList.remove('hidden'); return; }
+      $('newsPh').classList.add('hidden'); g.classList.remove('hidden');
+      g.innerHTML = news.map(n => {
+        const ev = n.kind === 'event';
+        const when = ev && n.eventDate ? new Date(n.eventDate + 'T00:00').toLocaleDateString(lang === 'sw' ? 'sw-TZ' : 'en-GB', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' }) : fmtDate(n.created);
+        return `<article class="ncard">${n.img ? `<img src="${n.img}" alt="" loading="lazy">` : ''}<div class="lbl">${ev ? T('Event', 'Tukio') : T('News', 'Habari')}</div><h3>${esc(pick(n, 'title'))}</h3><p class="body">${esc(pick(n, 'body'))}</p><div class="when">${ev ? '📅 ' : ''}${when}</div></article>`;
+      }).join('');
+    };
+    F.onSnapshot(F.query(F.collection(db, 'news'), F.orderBy('created', 'desc'), F.limit(9)),
+      snap => { news = snap.docs.map(d => ({ id: d.id, ...d.data() })); renderNews(); window.renderMine && renderMine(); }, () => {});
+
+    // ---------- members: auth ----------
     window.fbLogin = async () => {
       $('fbErr').textContent = '';
       try { await A.signInWithEmailAndPassword(auth, $('fbEmail').value.trim(), $('fbPw').value); $('fbPw').value = ''; }
@@ -772,21 +949,22 @@ if (cfg && cfg.apiKey) {
       $('nameBox').classList.add('hidden'); $('who').textContent = n;
     };
     window.logout = () => A.signOut(auth);
+
+    // ---------- members: contributions ----------
     window.addContribution = async () => {
       const a = +$('cAmt').value;
       if (!a || a <= 0) { $('cAmt').focus(); return; }
       if (!me.displayName) { $('nameBox').classList.remove('hidden'); $('fbName').focus(); return; }
-      const btn = document.querySelector('#dash .row .btn'); btn.disabled = true;
+      const btn = document.querySelector('#pContrib .row .btn'); btn.disabled = true;
       try {
         await F.addDoc(F.collection(db, 'contributions'), {
           amount: a, purpose: $('cPur').value, member: me.displayName, email: me.email, uid: me.uid,
           day: new Date().toISOString().slice(0, 10), created: F.serverTimestamp()
         });
         $('cAmt').value = '';
-      } catch (e) { alertBox(T('Could not save. Check your internet and try again.', 'Imeshindikana kuhifadhi. Angalia mtandao kisha ujaribu tena.')); }
+      } catch (e) { $('fbErr').textContent = T('Could not save. Check your internet and try again.', 'Imeshindikana kuhifadhi. Angalia mtandao kisha ujaribu tena.'); }
       btn.disabled = false;
     };
-    function alertBox(msg) { $('fbErr').textContent = msg; const r = document.querySelector('#dash .row'); let p = $('saveErr'); if (!p) { p = document.createElement('p'); p.id = 'saveErr'; p.className = 'ferr'; r.after(p); } p.textContent = msg; }
     window.renderRows = () => {
       $('rows').innerHTML = rows.length
         ? rows.map(c => `<tr><td>${c.day || ''}</td><td>${esc(c.member || '')}</td><td>${(PURPOSE[lang] || PURPOSE.en)[c.purpose] || esc(c.purpose || '')}</td><td class="amt">${fmt(c.amount || 0)}</td></tr>`).join('')
@@ -795,18 +973,89 @@ if (cfg && cfg.apiKey) {
       $('kMine').textContent = fmt(rows.filter(c => me && c.uid === me.uid).reduce((s, c) => s + (c.amount || 0), 0));
     };
 
+    // ---------- admin: inbox ----------
+    const KIND = { volunteer: ['Volunteer', 'Kujitolea'], partner: ['Partner', 'Mshirika'], contact: ['Message', 'Ujumbe'] };
+    const waLink = p => { let d = (p || '').replace(/\D/g, ''); if (d.startsWith('0')) d = '255' + d.slice(1); return d ? 'https://wa.me/' + d : ''; };
+    window.renderInbox = () => {
+      const f = window.inboxFilter;
+      const list = inbox.filter(m => f === 'all' ? true : f === 'new' ? !m.read : m.type === f);
+      const unread = inbox.filter(m => !m.read).length;
+      $('inBadge').textContent = unread; $('inBadge').classList.toggle('hidden', !unread);
+      $('inList').innerHTML = list.length ? list.map(m => {
+        const k = KIND[m.type] || [m.type, m.type], wa = waLink(m.phone);
+        return `<div class="msg ${m.read ? '' : 'new'}"><div class="top"><span class="kind">${T(k[0], k[1])}</span><span class="date">${fmtDate(m.created)}</span></div>
+          <b>${esc(m.name)}</b><div class="meta">📞 <a href="tel:${esc(m.phone)}">${esc(m.phone)}</a>${m.email ? ` · ✉️ <a href="mailto:${esc(m.email)}">${esc(m.email)}</a>` : ''}${m.location ? ` · 📍 ${esc(m.location)}` : ''}</div>
+          <p>${esc(m.message)}</p><div class="acts">
+          ${wa ? `<a class="chip" href="${wa}" target="_blank" rel="noopener">💬 ${T('Reply on WhatsApp', 'Jibu kwa WhatsApp')}</a>` : ''}
+          ${m.read ? `<button class="chip" onclick="fbMark('${m.id}',false)">${T('Mark as new', 'Weka kama mpya')}</button>` : `<button class="chip" onclick="fbMark('${m.id}',true)">✓ ${T('Mark as read', 'Weka kama imesomwa')}</button>`}
+          <button class="chip danger" onclick="fbDelMsg('${m.id}')">🗑 ${T('Delete', 'Futa')}</button></div></div>`;
+      }).join('') : `<p class="empty-s">${f === 'new' ? T('No new messages. 🎉', 'Hakuna ujumbe mpya. 🎉') : T('Nothing here yet.', 'Bado hakuna kitu hapa.')}</p>`;
+    };
+    window.fbMark = (id, read) => F.updateDoc(F.doc(db, 'messages', id), { read });
+    window.fbDelMsg = id => { if (window.confirmDel !== false && !askYes(T('Delete this message?', 'Futa ujumbe huu?'))) return; F.deleteDoc(F.doc(db, 'messages', id)); };
+    const askYes = q => { try { return window.confirm(q); } catch (e) { return true; } };
+
+    // ---------- admin: post news ----------
+    const shrink = file => new Promise((res, rej) => {
+      const img = new Image(), url = URL.createObjectURL(file);
+      img.onload = () => {
+        let w = img.width, h = img.height, max = 1100;
+        if (w > max || h > max) { const r = Math.min(max / w, max / h); w = Math.round(w * r); h = Math.round(h * r); }
+        const c = document.createElement('canvas'); c.width = w; c.height = h; c.getContext('2d').drawImage(img, 0, 0, w, h);
+        let q = .75, out = c.toDataURL('image/jpeg', q);
+        while (out.length > 700000 && q > .35) { q -= .1; out = c.toDataURL('image/jpeg', q); }
+        URL.revokeObjectURL(url); out.length > 900000 ? rej(new Error('big')) : res(out);
+      };
+      img.onerror = rej; img.src = url;
+    });
+    window.fbPost = async () => {
+      const kind = $('pKind').value, title = $('pTitle').value.trim(), body = $('pBody').value.trim();
+      if (!title || !body) return;
+      if (kind === 'event' && !$('pDate').value) { $('pDate').focus(); return; }
+      $('pBtn').disabled = true; $('pMsg').style.color = ''; $('pMsg').textContent = T('Publishing…', 'Inachapisha…');
+      try {
+        const file = $('pImg').files[0], img = file ? await shrink(file) : '';
+        await F.addDoc(F.collection(db, 'news'), {
+          kind, title, body, titleSw: $('pTitleSw').value.trim(), bodySw: $('pBodySw').value.trim(),
+          eventDate: kind === 'event' ? $('pDate').value : '', img, author: me.displayName || me.email, created: F.serverTimestamp()
+        });
+        $('postForm').reset(); $('pDateW').classList.add('hidden');
+        $('pMsg').textContent = T('✓ Published. It now shows in News & Events.', '✓ Imechapishwa. Sasa inaonekana kwenye Habari na Matukio.');
+      } catch (e) {
+        $('pMsg').style.color = '#b3261e';
+        $('pMsg').textContent = e.message === 'big' ? T('That photo is too large. Try a smaller one.', 'Picha ni kubwa mno. Jaribu nyingine ndogo.') : T('Could not publish. Check your internet and try again.', 'Imeshindikana kuchapisha. Angalia mtandao kisha ujaribu tena.');
+      }
+      $('pBtn').disabled = false;
+    };
+    window.renderMine = () => {
+      if (!isAdmin) return;
+      $('pList').innerHTML = news.length ? news.map(n => `<div class="mine">${n.img ? `<img src="${n.img}" alt="">` : ''}<div><b>${esc(n.title)}</b><br><span style="color:var(--muted)">${n.kind === 'event' ? T('Event', 'Tukio') + ' · ' + (n.eventDate || '') : fmtDate(n.created)}</span></div><button class="chip danger" onclick="fbDelNews('${n.id}')">🗑</button></div>`).join('')
+        : `<p class="empty-s">${T('Nothing published yet.', 'Bado hakuna kilichochapishwa.')}</p>`;
+    };
+    window.fbDelNews = id => { if (!askYes(T('Delete this post from the website?', 'Futa chapisho hili kwenye tovuti?'))) return; F.deleteDoc(F.doc(db, 'news', id)); };
+
+    // ---------- session ----------
     A.onAuthStateChanged(auth, u => {
-      me = u;
-      if (unsub) { unsub(); unsub = null; }
-      if (!u) { rows = []; $('dash').classList.add('hidden'); $('login').classList.remove('hidden'); $('nameBox').classList.add('hidden'); return; }
+      me = u; unsubs.forEach(f => f()); unsubs = [];
+      isAdmin = !!(u && u.email && ADMINS.includes(u.email.toLowerCase()));
+      $('tabs').classList.toggle('hidden', !isAdmin);
+      if (!isAdmin) tab(document.querySelector('#tabs button[data-tab="pContrib"]'));
+      if (!u) { rows = []; inbox = []; $('dash').classList.add('hidden'); $('login').classList.remove('hidden'); $('nameBox').classList.add('hidden'); return; }
       $('login').classList.add('hidden'); $('dash').classList.remove('hidden');
       $('who').textContent = u.displayName || u.email;
       $('nameBox').classList.toggle('hidden', !!u.displayName);
-      const q = F.query(F.collection(db, 'contributions'), F.orderBy('created', 'desc'));
-      unsub = F.onSnapshot(q, snap => { rows = snap.docs.map(d => d.data()); renderRows(); },
-        () => { rows = []; renderRows(); });
+      unsubs.push(F.onSnapshot(F.query(F.collection(db, 'contributions'), F.orderBy('created', 'desc')),
+        snap => { rows = snap.docs.map(d => d.data()); renderRows(); }, () => { rows = []; renderRows(); }));
+      if (isAdmin) {
+        unsubs.push(F.onSnapshot(F.query(F.collection(db, 'messages'), F.orderBy('created', 'desc')),
+          snap => { inbox = snap.docs.map(d => ({ id: d.id, ...d.data() })); renderInbox(); }, () => { inbox = []; renderInbox(); }));
+        renderMine();
+      }
     });
-  } catch (e) { console.error('Members area could not start', e); }
+    // re-render live parts when language changes
+    const _set = window.setLang;
+    window.setLang = l => { _set(l); renderNews(); if (isAdmin) { renderInbox(); renderMine(); } };
+  } catch (e) { console.error('Live features could not start', e); }
 }
 </script>
 </body>
