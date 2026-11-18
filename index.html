@@ -294,6 +294,8 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
 .mstats div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
 .mstats b{display:block;font:900 26px var(--hd);color:var(--green-d)}
 .mstats span{font-size:12.5px;color:var(--muted)}
+.mcover{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:10px 12px;font-size:13.5px;color:var(--muted);margin:0 0 12px}
+.mcover b{color:var(--green-d)}
 .mlegend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);margin-bottom:12px}
 .plist{max-height:330px;overflow-y:auto;display:flex;flex-direction:column;gap:8px}
 .pitem{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;text-align:left;font:inherit;width:100%}
@@ -540,6 +542,7 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
       <div id="cftMap"><div class="mapfall" data-i="mpLoad">Loading map…</div></div>
       <div>
         <div class="mstats"><div><b id="msPlaces">1</b><span data-i="msP">Places</span></div><div><b id="msRegions">1</b><span data-i="msR">Regions</span></div><div><b id="msProj">0</b><span data-i="msJ">Projects</span></div></div>
+        <p class="mcover" id="mCover">🇹🇿 <b>Nationwide:</b> CFT is registered to operate in all 31 regions of Tanzania.</p>
         <div class="mlegend" id="mLegend"></div>
         <div class="plist" id="pList2"></div>
       </div>
@@ -640,8 +643,8 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
     <p class="lead" data-i="teamP">Experienced conservationists and educators who work with communities living next to Tanzania's protected areas.</p>
     <div class="tgrid">
       <div class="tm"><div class="pic"><img src="img/happy.jpg" alt="Happy Frank Mollel" loading="lazy"></div><h3>Happy Frank Mollel</h3><p data-i="b1">Conserves wildlife through ecological monitoring and field-based assessments, and supervises tourism in protected areas. Gives conservation education to villagers next to protected areas and to students in nearby schools.</p></div>
-      <div class="tm"><div class="pic"><img src="img/daud.jpg" alt="Daud Gunda" loading="lazy"></div><h3>Daud Gunda</h3><p data-i="b2">Carries out wildlife ecology and tourism work, including ecological assessment and monitoring, and produces GIS maps and spatial data for conservation planning. Develops wildlife teaching aids and gives conservation education to communities and students.</p></div>
       <div class="tm"><div class="pic"><img src="img/marry.jpg" alt="Marry Stephen" loading="lazy"></div><h3>Marry Stephen</h3><p data-i="b3">Supports wildlife conservation and habitat protection through fieldwork and community engagement, and assists in controlling problem animals. Teaches villagers and school students practices that reduce human-wildlife conflict.</p></div>
+      <div class="tm"><div class="pic"><img src="img/daud.jpg" alt="Daud Gunda" loading="lazy"></div><h3>Daud Gunda</h3><p data-i="b2">Carries out wildlife ecology and tourism work, including ecological assessment and monitoring, and produces GIS maps and spatial data for conservation planning. Develops wildlife teaching aids and gives conservation education to communities and students.</p></div>
       <div class="tm"><div class="pic"><img src="img/vaileth.jpg" alt="Vaileth Priscus Mvungi" loading="lazy"></div><h3>Vaileth Priscus Mvungi</h3><div class="role" data-i="rAcc">Accountant</div><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
       <div class="tm"><div class="pic"><img src="img/ziada.jpg" alt="Ziada Ally Kahando" loading="lazy"></div><h3>Ziada Ally Kahando</h3><p data-i="b5">More than 20 years in wildlife conservation, community conservation education and problem-animal control. Over four years in the store keeping unit at Malihai Clubs of Tanzania – Lake Zone.</p></div>
       <div class="tm"><div class="pic"><img src="img/geofrey.jpg" alt="Geofrey Raphael Malegesi" loading="lazy"></div><h3>Geofrey Raphael Malegesi</h3><div class="role" data-i="rDir">Director</div><p data-i="b6">Supports wildlife conservation and habitat protection through field activities and community engagement, and assists in controlling problem animals. Gives conservation education to villagers and school students.</p></div>

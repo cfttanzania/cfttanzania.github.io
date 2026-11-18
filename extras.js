@@ -197,18 +197,31 @@
   const HQ = { id: 'hq', name: 'CFT Head Office', type: 'office', region: 'Mwanza', lat: -2.6, lng: 32.89,
     desc: 'West Buhongwa Street, Buhongwa Ward, Nyamagana District, Mwanza (approximate location).',
     descSw: 'Mtaa wa West Buhongwa, Kata ya Buhongwa, Wilaya ya Nyamagana, Mwanza (mahali pa takriban).' };
+  // CFT is registered to operate across the whole of Tanzania: all 31 regions (regional centres, approximate)
+  const REGIONS = [['Arusha',-3.37,36.68],['Dar es Salaam',-6.79,39.21],['Dodoma',-6.17,35.74],['Geita',-2.87,32.23],['Iringa',-7.77,35.69],
+    ['Kagera',-1.33,31.81],['Katavi',-6.34,31.07],['Kigoma',-4.88,29.63],['Kilimanjaro',-3.35,37.34],['Lindi',-9.99,39.71],['Manyara',-4.21,35.75],
+    ['Mara',-1.5,33.8],['Mbeya',-8.9,33.46],['Mjini Magharibi',-6.16,39.2],['Morogoro',-6.82,37.66],['Mtwara',-10.27,40.18],['Mwanza',-2.52,32.9],
+    ['Njombe',-9.33,34.77],['Pemba North',-5.06,39.73],['Pemba South',-5.25,39.77],['Pwani',-6.77,38.92],['Rukwa',-7.97,31.62],['Ruvuma',-10.68,35.65],
+    ['Shinyanga',-3.66,33.42],['Simiyu',-2.8,33.99],['Singida',-4.82,34.74],['Songwe',-9.11,32.93],['Tabora',-5.02,32.8],['Tanga',-5.07,39.1],
+    ['Unguja North',-5.88,39.25],['Unguja South',-6.13,39.31]];
+  let regionLayer = null;
   let places = [HQ], map = null, layer = null, markers = {}, picking = false;
   const pDesc = p => (L() === 'sw' && p.descSw) ? p.descSw : (p.desc || '');
   const tName = k => (TYPES[k] || TYPES.project)[L()];
 
   function renderPlaces() {
     const list = $('pList2'); if (!list) return;
-    const regions = new Set(places.map(p => p.region).filter(Boolean));
-    $('msPlaces').textContent = places.length; $('msRegions').textContent = regions.size;
+    $('msPlaces').textContent = places.length; $('msRegions').textContent = REGIONS.length;
+    const cov = $('mCover'); if (cov) cov.innerHTML = t('🇹🇿 <b>Nationwide:</b> CFT is registered to operate in all 31 regions of Tanzania. Shaded dots mark each region; pins mark our offices and project sites.', '🇹🇿 <b>Kitaifa:</b> CFT imesajiliwa kufanya kazi katika mikoa yote 31 ya Tanzania. Vitone vinaonyesha kila mkoa; alama zinaonyesha ofisi na maeneo ya miradi yetu.');
     $('msProj').textContent = places.filter(p => p.type === 'project').length;
     $('mLegend').innerHTML = Object.keys(TYPES).map(k => `<span>${TYPES[k].e} ${esc(tName(k))}</span>`).join('');
     list.innerHTML = places.map(p => `<button class="pitem" onclick="cftFly('${p.id}')"><span class="pe">${(TYPES[p.type] || TYPES.project).e}</span><span><b>${esc(p.name)}</b><small>${esc(tName(p.type))} · ${esc(p.region || '')}</small></span></button>`).join('');
     if (!map) return;
+    if (!regionLayer) {
+      regionLayer = window.L.layerGroup().addTo(map);
+      REGIONS.forEach(r => window.L.circleMarker([r[1], r[2]], { radius: 7, color: '#0f4f1c', weight: 1.5, fillColor: '#2e8b3d', fillOpacity: .45 })
+        .addTo(regionLayer).bindPopup(() => `<b>${esc(r[0])}</b><br><small>${esc(t('Region · within CFT\'s operating area', 'Mkoa · ndani ya eneo la kazi la CFT'))}</small>`));
+    }
     layer.clearLayers(); markers = {};
     places.forEach(p => {
       const icon = window.L.divIcon({ className: '', html: `<div class="pin">${(TYPES[p.type] || TYPES.project).e}</div>`, iconSize: [30, 30], iconAnchor: [15, 28], popupAnchor: [0, -24] });
@@ -227,7 +240,7 @@
     const js = document.createElement('script'); js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
     js.onload = () => {
       const el = $('cftMap'); el.innerHTML = '';
-      map = window.L.map(el, { scrollWheelZoom: false, minZoom: 5, maxBounds: [[-15, 26], [3, 44]] }).setView([-6.3, 34.9], 6);
+      map = window.L.map(el, { scrollWheelZoom: false, minZoom: 5, maxBounds: [[-15, 26], [3, 44]] }).fitBounds([[-11.75, 29.3], [-0.95, 40.45]]);
       window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
       layer = window.L.layerGroup().addTo(map);
       map.on('click', e => {
