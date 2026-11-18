@@ -230,6 +230,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 th,td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line)}
 th{color:var(--muted);font-weight:600;font-size:13px}
 td.amt{text-align:right;font-variant-numeric:tabular-nums}
+.ferr{color:#b3261e;font-size:14px;margin-top:10px;min-height:1em}
 .row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-top:16px}
 
 /* app bits */
@@ -541,11 +542,28 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
     <h2 data-i="memT">Members Area</h2>
     <div class="demo-note" data-i="demoNote">Preview: entries are saved only on this device for now. Once connected to the foundation's account, all members will share the same records with a secure login.</div>
     <div id="login">
-      <label data-i="yourName">Your name</label>
-      <input id="mName" placeholder="e.g. Amina Juma">
-      <label data-i="pin">Member PIN</label>
-      <input id="mPin" type="password" placeholder="••••">
-      <button class="btn" style="margin-top:18px" onclick="login()" data-i="signIn">Sign in</button>
+      <div id="demoLogin">
+        <label data-i="yourName">Your name</label>
+        <input id="mName" placeholder="e.g. Amina Juma">
+        <label data-i="pin">Member PIN</label>
+        <input id="mPin" type="password" placeholder="••••">
+        <button class="btn" style="margin-top:18px" onclick="login()" data-i="signIn">Sign in</button>
+      </div>
+      <form id="fbLogin" class="hidden" onsubmit="event.preventDefault();window.fbLogin&&fbLogin()">
+        <label data-i="emailL">Email</label>
+        <input id="fbEmail" type="email" autocomplete="username" required>
+        <label data-i="pwL">Password</label>
+        <input id="fbPw" type="password" autocomplete="current-password" required>
+        <p id="fbErr" class="ferr"></p>
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px">
+          <button class="btn" type="submit" data-i="signIn">Sign in</button>
+          <a href="#" class="link" onclick="window.fbReset&&fbReset();return false" data-i="forgot">Forgot password?</a>
+        </div>
+      </form>
+    </div>
+    <div id="nameBox" class="hidden" style="margin-bottom:16px">
+      <label data-i="nameNeed">Your full name (shown with your contributions)</label>
+      <div style="display:flex;gap:10px"><input id="fbName" placeholder="e.g. Amina Juma"><button class="btn sm" onclick="window.fbSaveName&&fbSaveName()" data-i="save">Save</button></div>
     </div>
     <div id="dash" class="hidden">
       <div class="dash-top"><h3 style="font-size:22px;color:var(--green-d)"><span data-i="welcome">Welcome</span>, <span id="who"></span></h3><button class="btn outline sm" onclick="logout()" data-i="signOut">Sign out</button></div>
@@ -573,6 +591,7 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
   <button onclick="openMembers()"><span>👥</span><b data-i="tMem">Members</b></button>
 </nav>
 
+<script src="firebase-config.js"></script>
 <script>
 const SW = {
   ann:"Shirika lisilo la kiserikali lililosajiliwa, Mwanza, Tanzania · Na. 00NGO/R/10502", annBtn:"Shirikiana nasi",
@@ -635,6 +654,8 @@ const SW = {
   conK:"Mawasiliano", conT:"Tupate", dAddr:"Anwani", dPost:"Sanduku la Posta", dEmail:"Barua pepe", dReg:"Usajili", emailUs:"✉️ Tutumie barua pepe",
   footAbout:"Pamoja kwa uhifadhi wa wanyamapori, jamii imara na mustakabali endelevu.", madeTz:"Mwanza, Tanzania",
   memK:"Kwa wanachama wa CFT", memT:"Eneo la Wanachama",
+  emailL:"Barua pepe", pwL:"Nenosiri", forgot:"Umesahau nenosiri?", nameNeed:"Jina lako kamili (litaonekana pamoja na michango yako)", save:"Hifadhi",
+  liveNote:"Michango inahifadhiwa mtandaoni na kuonekana kwa wanachama wote walioingia. Marekebisho hufanywa na msimamizi.",
   demoNote:"Onyesho: kwa sasa taarifa zinahifadhiwa kwenye kifaa hiki tu. Ikishaunganishwa na akaunti ya taasisi, wanachama wote watatumia kumbukumbu zilezile kwa kuingia kwa usalama.",
   yourName:"Jina lako", pin:"PIN ya mwanachama", signIn:"Ingia", signOut:"Toka", welcome:"Karibu",
   k1:"Jumla ya michango", k2:"Michango yako", thDate:"Tarehe", thMember:"Mwanachama", thPurpose:"Madhumuni", thAmount:"Kiasi",
@@ -701,6 +722,91 @@ hero.addEventListener('touchend',e=>{if(tx===null)return; const dx=e.changedTouc
 document.getElementById('yr').textContent=new Date().getFullYear();
 if(store('cft-lang')==='sw') setLang('sw'); else {document.querySelector('.den').classList.add('on'); renderRows()}
 const saved=store('cft-user'); if(saved){user=saved; showDash()}
+</script>
+<script type="module">
+// Shared members area (Firebase). Runs only when firebase-config.js has real settings.
+const cfg = window.CFT_FIREBASE;
+if (cfg && cfg.apiKey) {
+  const V = 'https://www.gstatic.com/firebasejs/10.12.2/';
+  try {
+    const { initializeApp } = await import(V + 'firebase-app.js');
+    const A = await import(V + 'firebase-auth.js');
+    const F = await import(V + 'firebase-firestore.js');
+    const app = initializeApp(cfg), auth = A.getAuth(app), db = F.getFirestore(app);
+    const $ = id => document.getElementById(id);
+    const T = (en, sw) => (lang === 'sw' ? sw : en);
+    let rows = [], me = null, unsub = null;
+
+    // switch UI to live mode
+    $('demoLogin').classList.add('hidden'); $('fbLogin').classList.remove('hidden');
+    const note = document.querySelector('.demo-note');
+    note.dataset.i = 'liveNote';
+    note.dataset.en = 'Contributions are saved online and visible to all signed-in members. Corrections are made by an administrator.';
+    note.innerHTML = lang === 'sw' ? SW.liveNote : note.dataset.en;
+    try { localStorage.removeItem('cft-user'); } catch (e) {}
+
+    const errText = c => ({
+      'auth/invalid-credential': T('Wrong email or password.', 'Barua pepe au nenosiri si sahihi.'),
+      'auth/wrong-password': T('Wrong email or password.', 'Barua pepe au nenosiri si sahihi.'),
+      'auth/user-not-found': T('No member account with this email.', 'Hakuna akaunti ya mwanachama kwa barua pepe hii.'),
+      'auth/too-many-requests': T('Too many attempts. Try again later.', 'Majaribio mengi. Jaribu tena baadaye.'),
+      'auth/network-request-failed': T('No internet connection.', 'Hakuna mtandao.'),
+      'auth/invalid-email': T('Enter a valid email.', 'Weka barua pepe sahihi.'),
+    }[c] || T('Something went wrong. Please try again.', 'Hitilafu imetokea. Tafadhali jaribu tena.'));
+
+    window.fbLogin = async () => {
+      $('fbErr').textContent = '';
+      try { await A.signInWithEmailAndPassword(auth, $('fbEmail').value.trim(), $('fbPw').value); $('fbPw').value = ''; }
+      catch (e) { $('fbErr').textContent = errText(e.code); }
+    };
+    window.fbReset = async () => {
+      const em = $('fbEmail').value.trim();
+      if (!em) { $('fbErr').textContent = T('Type your email first, then tap "Forgot password?".', 'Andika barua pepe yako kwanza, kisha bonyeza "Umesahau nenosiri?".'); $('fbEmail').focus(); return; }
+      try { await A.sendPasswordResetEmail(auth, em); $('fbErr').textContent = T('A reset link was sent to ' + em + '.', 'Kiungo cha kubadilisha nenosiri kimetumwa kwa ' + em + '.'); }
+      catch (e) { $('fbErr').textContent = errText(e.code); }
+    };
+    window.fbSaveName = async () => {
+      const n = $('fbName').value.trim(); if (!n) { $('fbName').focus(); return; }
+      await A.updateProfile(auth.currentUser, { displayName: n });
+      $('nameBox').classList.add('hidden'); $('who').textContent = n;
+    };
+    window.logout = () => A.signOut(auth);
+    window.addContribution = async () => {
+      const a = +$('cAmt').value;
+      if (!a || a <= 0) { $('cAmt').focus(); return; }
+      if (!me.displayName) { $('nameBox').classList.remove('hidden'); $('fbName').focus(); return; }
+      const btn = document.querySelector('#dash .row .btn'); btn.disabled = true;
+      try {
+        await F.addDoc(F.collection(db, 'contributions'), {
+          amount: a, purpose: $('cPur').value, member: me.displayName, email: me.email, uid: me.uid,
+          day: new Date().toISOString().slice(0, 10), created: F.serverTimestamp()
+        });
+        $('cAmt').value = '';
+      } catch (e) { alertBox(T('Could not save. Check your internet and try again.', 'Imeshindikana kuhifadhi. Angalia mtandao kisha ujaribu tena.')); }
+      btn.disabled = false;
+    };
+    function alertBox(msg) { $('fbErr').textContent = msg; const r = document.querySelector('#dash .row'); let p = $('saveErr'); if (!p) { p = document.createElement('p'); p.id = 'saveErr'; p.className = 'ferr'; r.after(p); } p.textContent = msg; }
+    window.renderRows = () => {
+      $('rows').innerHTML = rows.length
+        ? rows.map(c => `<tr><td>${c.day || ''}</td><td>${esc(c.member || '')}</td><td>${(PURPOSE[lang] || PURPOSE.en)[c.purpose] || esc(c.purpose || '')}</td><td class="amt">${fmt(c.amount || 0)}</td></tr>`).join('')
+        : `<tr><td colspan="4" style="color:var(--muted)">${T('No contributions recorded yet.', 'Bado hakuna michango iliyorekodiwa.')}</td></tr>`;
+      $('kTotal').textContent = fmt(rows.reduce((s, c) => s + (c.amount || 0), 0));
+      $('kMine').textContent = fmt(rows.filter(c => me && c.uid === me.uid).reduce((s, c) => s + (c.amount || 0), 0));
+    };
+
+    A.onAuthStateChanged(auth, u => {
+      me = u;
+      if (unsub) { unsub(); unsub = null; }
+      if (!u) { rows = []; $('dash').classList.add('hidden'); $('login').classList.remove('hidden'); $('nameBox').classList.add('hidden'); return; }
+      $('login').classList.add('hidden'); $('dash').classList.remove('hidden');
+      $('who').textContent = u.displayName || u.email;
+      $('nameBox').classList.toggle('hidden', !!u.displayName);
+      const q = F.query(F.collection(db, 'contributions'), F.orderBy('created', 'desc'));
+      unsub = F.onSnapshot(q, snap => { rows = snap.docs.map(d => d.data()); renderRows(); },
+        () => { rows = []; renderRows(); });
+    });
+  } catch (e) { console.error('Members area could not start', e); }
+}
 </script>
 </body>
 </html>
