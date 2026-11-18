@@ -10,7 +10,7 @@ window.CFT_FIREBASE = {
 };
 
 // Who can read the Inbox and post news. Must match the list in the Firestore rules.
-window.CFT_ADMINS = ["david.gunda@gmail.com"];
+window.CFT_ADMINS = ["david.gunda@gmail.com", "7171jeff@gmail.com"];
 
 // CFT's WhatsApp number for the green chat button (e.g. "255712345678"). Leave empty to hide the button.
-window.CFT_WHATSAPP = "";
+window.CFT_WHATSAPP = "36707201643";
