@@ -186,8 +186,72 @@
     setTimeout(() => add(hit ? TOPICS[hit[0]]() : t("Sorry, I don't have an answer for that yet. Our team can help you directly:", 'Samahani, bado sina jibu la hilo. Timu yetu inaweza kukusaidia moja kwa moja:') + '<br>' + TOPICS.human(true), 'bot'), 300);
   };
 
+  // ---------------- OPERATIONS MAP ----------------
+  const TYPES = {
+    office: { e: '🏢', en: 'Office', sw: 'Ofisi' },
+    project: { e: '🌱', en: 'Project site', sw: 'Eneo la mradi' },
+    school: { e: '🏫', en: 'School', sw: 'Shule' },
+    community: { e: '🏘️', en: 'Community / village', sw: 'Jamii / kijiji' },
+    partner: { e: '🤝', en: 'Partner', sw: 'Mshirika' },
+  };
+  const HQ = { id: 'hq', name: 'CFT Head Office', type: 'office', region: 'Mwanza', lat: -2.6, lng: 32.89,
+    desc: 'West Buhongwa Street, Buhongwa Ward, Nyamagana District, Mwanza (approximate location).',
+    descSw: 'Mtaa wa West Buhongwa, Kata ya Buhongwa, Wilaya ya Nyamagana, Mwanza (mahali pa takriban).' };
+  let places = [HQ], map = null, layer = null, markers = {}, picking = false;
+  const pDesc = p => (L() === 'sw' && p.descSw) ? p.descSw : (p.desc || '');
+  const tName = k => (TYPES[k] || TYPES.project)[L()];
+
+  function renderPlaces() {
+    const list = $('pList2'); if (!list) return;
+    const regions = new Set(places.map(p => p.region).filter(Boolean));
+    $('msPlaces').textContent = places.length; $('msRegions').textContent = regions.size;
+    $('msProj').textContent = places.filter(p => p.type === 'project').length;
+    $('mLegend').innerHTML = Object.keys(TYPES).map(k => `<span>${TYPES[k].e} ${esc(tName(k))}</span>`).join('');
+    list.innerHTML = places.map(p => `<button class="pitem" onclick="cftFly('${p.id}')"><span class="pe">${(TYPES[p.type] || TYPES.project).e}</span><span><b>${esc(p.name)}</b><small>${esc(tName(p.type))} · ${esc(p.region || '')}</small></span></button>`).join('');
+    if (!map) return;
+    layer.clearLayers(); markers = {};
+    places.forEach(p => {
+      const icon = window.L.divIcon({ className: '', html: `<div class="pin">${(TYPES[p.type] || TYPES.project).e}</div>`, iconSize: [30, 30], iconAnchor: [15, 28], popupAnchor: [0, -24] });
+      markers[p.id] = window.L.marker([p.lat, p.lng], { icon }).addTo(layer)
+        .bindPopup(`<b>${esc(p.name)}</b><br><small>${esc(tName(p.type))} · ${esc(p.region || '')}</small>${pDesc(p) ? `<p style="margin:6px 0 0">${esc(pDesc(p))}</p>` : ''}`);
+    });
+  }
+  window.cftSetPlaces = list => { places = [HQ, ...list.filter(p => typeof p.lat === 'number' && typeof p.lng === 'number')]; renderPlaces(); };
+  window.cftFly = id => {
+    const p = places.find(x => x.id === id); if (!p || !map) return;
+    map.flyTo([p.lat, p.lng], 9, { duration: .8 }); setTimeout(() => markers[id] && markers[id].openPopup(), 850);
+  };
+  function loadMap() {
+    if (map || !$('cftMap')) return;
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(css);
+    const js = document.createElement('script'); js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    js.onload = () => {
+      const el = $('cftMap'); el.innerHTML = '';
+      map = window.L.map(el, { scrollWheelZoom: false, minZoom: 5, maxBounds: [[-15, 26], [3, 44]] }).setView([-6.3, 34.9], 6);
+      window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+      layer = window.L.layerGroup().addTo(map);
+      map.on('click', e => {
+        if (!picking) return; picking = false; $('pickBar').classList.remove('on');
+        $('plLat').value = e.latlng.lat.toFixed(5); $('plLng').value = e.latlng.lng.toFixed(5);
+        openMembers(); const b = document.querySelector('#tabs button[data-tab="pMap"]'); if (b) tab(b);
+      });
+      renderPlaces();
+    };
+    js.onerror = () => { $('cftMap').innerHTML = `<div class="mapfall">${t('The map needs an internet connection. The list of places is shown here.', 'Ramani inahitaji mtandao. Orodha ya maeneo inaonyeshwa hapa.')}</div>`; };
+    document.head.appendChild(js);
+  }
+  window.cftPick = () => {
+    if (!map) { $('plMsg').textContent = t('The map is not loaded yet (it needs internet).', 'Ramani bado haijapakia (inahitaji mtandao).'); loadMap(); return; }
+    closeMembers(); picking = true; $('pickBar').classList.add('on');
+    document.getElementById('map').scrollIntoView({ behavior: 'smooth' });
+  };
+  if ('IntersectionObserver' in window && $('map')) {
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); loadMap(); } }, { rootMargin: '400px' });
+    io.observe($('map'));
+  } else loadMap();
+
   // ---------------- language + start ----------------
   const _set = window.setLang;
-  window.setLang = l => { _set(l); renderLearn(); if (started) quick(); };
-  renderLearn();
+  window.setLang = l => { _set(l); renderLearn(); renderPlaces(); if (started) quick(); };
+  renderLearn(); renderPlaces();
 })();
