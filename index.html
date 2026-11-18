@@ -174,6 +174,7 @@ header{position:sticky;top:0;z-index:80;background:#fff;box-shadow:0 1px 0 var(-
 .tm:nth-child(3n) .pic{background:linear-gradient(160deg,var(--sky),var(--blue))}
 .tm .pic img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .tm h3{font-size:20px;color:var(--green-d);margin-bottom:6px}
+.tm .role{font:800 12px var(--hd);letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin:-2px 0 8px}
 .tm p{font-size:14px;color:var(--muted)}
 
 /* appeal */
@@ -474,11 +475,11 @@ td.amt{text-align:right;font-variant-numeric:tabular-nums}
       <div class="tm"><div class="pic"><img src="img/happy.jpg" alt="Happy Frank Mollel" loading="lazy"></div><h3>Happy Frank Mollel</h3><p data-i="b1">Conserves wildlife through ecological monitoring and field-based assessments, and supervises tourism in protected areas. Gives conservation education to villagers next to protected areas and to students in nearby schools.</p></div>
       <div class="tm"><div class="pic"><img src="img/daud.jpg" alt="Daud Gunda" loading="lazy"></div><h3>Daud Gunda</h3><p data-i="b2">Carries out wildlife ecology and tourism work, including ecological assessment and monitoring, and produces GIS maps and spatial data for conservation planning. Develops wildlife teaching aids and gives conservation education to communities and students.</p></div>
       <div class="tm"><div class="pic"><img src="img/marry.jpg" alt="Marry Stephen" loading="lazy"></div><h3>Marry Stephen</h3><p data-i="b3">Supports wildlife conservation and habitat protection through fieldwork and community engagement, and assists in controlling problem animals. Teaches villagers and school students practices that reduce human-wildlife conflict.</p></div>
-      <div class="tm"><div class="pic">VM</div><h3>Vaileth Mvungi</h3><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
+      <div class="tm"><div class="pic">VM</div><h3>Vaileth Priscus Mvungi</h3><div class="role" data-i="rAcc">Accountant</div><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
       <div class="tm"><div class="pic">ZK</div><h3>Ziada Ally Kahando</h3><p data-i="b5">More than 20 years in wildlife conservation, community conservation education and problem-animal control. Over four years in the store keeping unit at Malihai Clubs of Tanzania – Lake Zone.</p></div>
-      <div class="tm"><div class="pic"><img src="img/geofrey.jpg" alt="Geofrey Malegesi" loading="lazy"></div><h3>Geofrey Malegesi</h3><p data-i="b6">Supports wildlife conservation and habitat protection through field activities and community engagement, and assists in controlling problem animals. Gives conservation education to villagers and school students.</p></div>
-      <div class="tm"><div class="pic">HD</div><h3>Hidaya Danda</h3><p data-i="b7">Works in conservation fieldwork, community education and problem-animal control. Most of her work focuses on empowering women and children living near game reserves.</p></div>
-      <div class="tm"><div class="pic">DR</div><h3>Doreen Ruta</h3><p data-i="b8">Supports conservation through hands-on fieldwork and ecological observation, and helps oversee tourism in protected areas. Gives conservation lessons to communities and nearby schools.</p></div>
+      <div class="tm"><div class="pic"><img src="img/geofrey.jpg" alt="Geofrey Raphael Malegesi" loading="lazy"></div><h3>Geofrey Raphael Malegesi</h3><div class="role" data-i="rDir">Director</div><p data-i="b6">Supports wildlife conservation and habitat protection through field activities and community engagement, and assists in controlling problem animals. Gives conservation education to villagers and school students.</p></div>
+      <div class="tm"><div class="pic">HD</div><h3>Hidaya Hamis Danda</h3><div class="role" data-i="rOps">Operations Manager</div><p data-i="b7">Works in conservation fieldwork, community education and problem-animal control. Most of her work focuses on empowering women and children living near game reserves.</p></div>
+      <div class="tm"><div class="pic"><img src="img/doreen.jpg" alt="Doreen Ruta" loading="lazy"></div><h3>Doreen Ruta</h3><p data-i="b8">Supports conservation through hands-on fieldwork and ecological observation, and helps oversee tourism in protected areas. Gives conservation lessons to communities and nearby schools.</p></div>
     </div>
   </div>
 </section>
@@ -660,7 +661,7 @@ const SW = {
   yourName:"Jina lako", pin:"PIN ya mwanachama", signIn:"Ingia", signOut:"Toka", welcome:"Karibu",
   k1:"Jumla ya michango", k2:"Michango yako", thDate:"Tarehe", thMember:"Mwanachama", thPurpose:"Madhumuni", thAmount:"Kiasi",
   amount:"Kiasi (TSh)", purpose:"Madhumuni", oMonthly:"Mchango wa mwezi", oProject:"Mfuko wa mradi", oEmergency:"Msaada wa dharura", add:"Ongeza",
-  install:"📲 Pakua programu", tHome:"Mwanzo", tProg:"Programu", tField:"Uwandani", tInv:"Jiunge", tMem:"Wanachama"
+  install:"📲 Pakua programu", rDir:"Mkurugenzi", rOps:"Meneja wa Uendeshaji", rAcc:"Mhasibu", tHome:"Mwanzo", tProg:"Programu", tField:"Uwandani", tInv:"Jiunge", tMem:"Wanachama"
 };
 const PURPOSE={en:{monthly:"Monthly contribution",project:"Project fund",emergency:"Emergency support"},sw:{monthly:"Mchango wa mwezi",project:"Mfuko wa mradi",emergency:"Msaada wa dharura"}};
 let lang="en", user=null;

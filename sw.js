@@ -1,11 +1,11 @@
 // Offline support: caches the site so the app opens without internet.
-const CACHE = 'cft-v7';
+const CACHE = 'cft-v8';
 const FILES = ['./', 'index.html', 'manifest.json', 'firebase-config.js',
   'img/emblem.png', 'img/icon-192.png', 'img/icon-512.png', 'img/logo.jpg', 'img/hero.jpg',
   'img/trees.jpg', 'img/birds.jpg', 'img/garden.jpg', 'img/poultry.jpg',
   'img/maize.jpg', 'img/daud.jpg', 'img/marry.jpg', 'img/geofrey.jpg',
   'img/community.jpg', 'img/school.jpg', 'img/nursery.jpg', 'img/nursery2.jpg', 'img/woodlot.jpg', 'img/tools.jpg', 'img/poster.jpg',
-  'img/happy.jpg', 'img/wildebeest.jpg', 'img/seedlings.jpg'];
+  'img/happy.jpg', 'img/wildebeest.jpg', 'img/seedlings.jpg', 'img/doreen.jpg'];
 
 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))));
 self.addEventListener('activate', e => e.waitUntil(
