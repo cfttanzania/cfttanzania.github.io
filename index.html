@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f4f1c">
+<meta name="description" content="Charity Foundation CFT Tanzania — wildlife conservation, climate-smart agriculture, community empowerment, education and child protection. Reg. No. 00NGO/R/10502.">
+<title>Charity Foundation CFT Tanzania</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1b7a2c; --green-d:#0d3f17; --green-l:#e8f3e6; --orange:#ef7b1c; --orange-d:#d2650c; --blue:#1d4e9e; --sky:#3a9be0;
+  --cream:#faf7f0; --sand:#f2ecdf; --ink:#141b16; --muted:#56625a; --line:#e4ddcf;
+  --hd:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:#fff;color:var(--ink);line-height:1.6;padding-bottom:70px}
+h1,h2,h3,h4{font-family:var(--hd);line-height:1.08;letter-spacing:-.015em}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.hidden{display:none!important}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font:700 15px Inter;text-decoration:none;border:2px solid var(--orange);background:var(--orange);color:#fff;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--orange-d);border-color:var(--orange-d);transform:translateY(-1px)}
+.btn.outline{background:transparent;color:var(--green-d);border-color:var(--green-d)}
+.btn.outline:hover{background:var(--green-d);color:#fff}
+.btn.white{background:#fff;color:var(--green-d);border-color:#fff}
+.btn.sm{padding:9px 18px;font-size:14px}
+.link{font-weight:700;text-decoration:none;color:var(--green);border-bottom:2px solid currentColor;padding-bottom:1px}
+.kicker{font:800 13px var(--hd);letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+section{padding:96px 0}
+.h2{font-size:clamp(32px,4.4vw,54px);font-weight:900;color:var(--green-d);margin-bottom:16px}
+.lead{font-size:18px;color:var(--muted);max-width:640px}
+
+/* announcement */
+.announce{background:var(--green-d);color:#fff;font-size:14px}
+.announce .wrap{display:flex;align-items:center;justify-content:center;gap:16px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap;text-align:center}
+.announce a{background:var(--orange);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:5px 14px;border-radius:999px}
+
+/* header */
+header{position:sticky;top:0;z-index:80;background:#fff;box-shadow:0 1px 0 var(--line)}
+.util{border-bottom:1px solid var(--line);font-size:13px}
+.util .wrap{display:flex;justify-content:flex-end;align-items:center;gap:18px;height:36px}
+.util button.ml{background:none;border:0;font:600 13px Inter;color:var(--muted);cursor:pointer}
+.util button.ml:hover{color:var(--green)}
+.lang{display:flex;gap:2px}
+.lang button{border:0;background:none;padding:3px 8px;border-radius:6px;font:700 12px Inter;color:var(--muted);cursor:pointer}
+.lang button.on{background:var(--green-l);color:var(--green-d)}
+.main-nav>.wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:54px;height:54px}
+.brand b{display:block;font:800 19px var(--hd);color:var(--green-d);line-height:1}
+.brand small{display:block;font:800 11.5px var(--hd);color:var(--orange);letter-spacing:.14em;margin-top:4px}
+.menu{display:flex;align-items:center;gap:6px;list-style:none;height:100%}
+.menu>li{height:100%;display:flex;align-items:center}
+.menu>li>a{font:700 15.5px var(--hd);text-decoration:none;color:var(--ink);padding:10px 14px;border-radius:8px;display:flex;align-items:center;gap:6px}
+.menu>li>a .car{font-size:10px;transition:transform .2s}
+.menu>li:hover>a,.menu>li:focus-within>a{color:var(--green)}
+.menu>li:hover .car{transform:rotate(180deg)}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 24px 40px rgba(0,0,0,.08);opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s}
+.menu>li:hover .mega,.menu>li:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:40px;padding-top:32px;padding-bottom:36px}
+.mega .intro h4{font-size:26px;color:var(--green-d);margin-bottom:8px}
+.mega .intro p{color:var(--muted);font-size:15px}
+.mega ul{list-style:none;columns:2;column-gap:24px}
+.mega ul li{break-inside:avoid;margin-bottom:12px}
+.mega ul a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink)}
+.mega ul a:hover{color:var(--orange)}
+.mega .promo{display:flex;gap:14px;align-items:center;text-decoration:none;background:var(--cream);border-radius:14px;padding:12px}
+.mega .promo img{width:96px;height:80px;object-fit:cover;border-radius:10px}
+.mega .promo b{font:800 16px var(--hd);color:var(--green-d)}
+.mega .promo span{display:block;font-size:13px;color:var(--muted)}
+.burger{display:none;background:none;border:0;font-size:28px;cursor:pointer;color:var(--green-d)}
+.drawer{position:fixed;inset:0;background:#fff;z-index:90;padding:20px 24px 40px;overflow:auto;transform:translateX(100%);visibility:hidden;transition:transform .25s,visibility .25s}
+.drawer.on{transform:none;visibility:visible}
+.drawer .top .brand{display:flex;border:0;padding:0}
+.drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.drawer .top button{background:none;border:0;font-size:30px;cursor:pointer}
+.drawer h5{font:800 13px var(--hd);letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin:22px 0 8px}
+.drawer a{display:block;text-decoration:none;font:700 20px var(--hd);color:var(--green-d);padding:8px 0;border-bottom:1px solid var(--line)}
+
+/* hero */
+.hero{position:relative;min-height:calc(100vh - 150px);min-height:640px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.slides{position:absolute;inset:0}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease,transform 7s linear}
+.slides img.on{opacity:1;transform:scale(1)}
+.dots{position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;justify-content:center;gap:10px}
+.dots button{width:11px;height:11px;border-radius:999px;border:2px solid #fff;background:transparent;cursor:pointer;padding:0;transition:all .3s}
+.dots button.on{background:#fff;width:30px}
+.slide-cap{position:absolute;right:24px;bottom:56px;z-index:2;font:700 13px var(--hd);background:rgba(0,0,0,.35);padding:5px 12px;border-radius:999px;transition:opacity .4s}
+@media (prefers-reduced-motion:reduce){.slides img{transition:opacity .6s;transform:none!important}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,30,12,.82) 0%,rgba(8,30,12,.45) 45%,rgba(8,30,12,0) 75%),linear-gradient(0deg,rgba(8,30,12,.55),transparent 40%)}
+.hero .wrap{position:relative;z-index:1;padding-top:80px;padding-bottom:80px;width:100%}
+.hero .kicker{color:#ffb069}
+.hero h1{font-size:clamp(38px,5.6vw,74px);font-weight:900;max-width:880px;margin-bottom:22px;text-wrap:balance}
+.hero p{font-size:19px;max-width:560px;opacity:.92;margin-bottom:30px}
+.hero .acts{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.hero .acts .link{color:#fff}
+.hero .reg{position:absolute;right:24px;bottom:24px;z-index:1;font-size:12px;opacity:.8}
+
+/* value band */
+.values{background:var(--cream);padding:72px 0}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.v{padding:8px 28px;border-left:3px solid var(--line)}
+.v:first-child{border-left-color:var(--orange)}
+.v .n{font:900 15px var(--hd);color:var(--orange);margin-bottom:10px}
+.v h3{font-size:22px;color:var(--green-d);margin-bottom:8px}
+.v p{color:var(--muted);font-size:15px}
+
+/* mission strip */
+.mission{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.mission .ph{position:relative}
+.mission .ph img{border-radius:4px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.mission .ph::before{content:"";position:absolute;left:-18px;top:-18px;width:55%;height:55%;background:var(--orange);z-index:-1;border-radius:4px}
+.mission .statement{font:800 clamp(28px,3.4vw,44px)/1.18 var(--hd);color:var(--green-d);margin-bottom:28px;letter-spacing:-.02em}
+.mission .statement a{color:var(--green);text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:4px;text-underline-offset:6px}
+
+/* programmes */
+.progs-sec{background:var(--green-d);color:#fff}
+.progs-sec .h2{color:#fff}
+.progs-sec .lead{color:rgba(255,255,255,.75)}
+.phead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pcard{background:#fff;color:var(--ink);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .25s}
+.pcard:hover{transform:translateY(-4px)}
+.pcard .img{aspect-ratio:3/2;overflow:hidden;background:linear-gradient(135deg,var(--sky),var(--blue));display:grid;place-items:center;font-size:64px}
+.pcard .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pcard:hover .img img{transform:scale(1.05)}
+.pcard .body{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column}
+.pcard .lbl{font:800 12px var(--hd);letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.pcard h3{font-size:22px;color:var(--green-d);margin-bottom:10px}
+.pcard p{font-size:15px;color:var(--muted);flex:1}
+.pcard.big{grid-column:span 1}
+.pnote{margin-top:28px;font-size:13px;color:rgba(255,255,255,.6)}
+
+/* about + objectives */
+.about{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
+.about p{color:var(--muted);margin-bottom:16px;font-size:16.5px}
+.olist{list-style:none;counter-reset:o;border-top:2px solid var(--green-d)}
+.olist li{counter-increment:o;display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font:700 18px/1.35 var(--hd);color:var(--ink)}
+.olist li::before{content:counter(o,decimal-leading-zero);font:900 15px var(--hd);color:var(--orange);min-width:28px}
+.swnote{font-size:13px;color:var(--muted);font-style:italic;margin-top:14px}
+
+/* gallery */
+.field{background:var(--cream)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;grid-auto-flow:dense;gap:14px;margin-top:40px}
+.gal .w{grid-column:span 2}.gal .t{grid-row:span 2}
+.gal figure{position:relative;overflow:hidden;border-radius:4px;cursor:zoom-in;background:var(--sand)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font:700 14px var(--hd)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;place-items:center;z-index:120;padding:20px;cursor:zoom-out}
+.lightbox.on{display:grid}
+.lightbox img{max-height:90vh;border-radius:6px}
+
+/* news */
+.ngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.ncard{border-top:3px solid var(--green-d);padding-top:18px}
+.ncard .lbl{font:800 12px var(--hd);letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.ncard h3{font-size:21px;color:var(--green-d);margin:8px 0 6px}
+.ncard p{font-size:14.5px;color:var(--muted)}
+
+/* team */
+.team-sec{background:var(--cream)}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 24px;margin-top:44px}
+.tm .pic{aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:linear-gradient(160deg,var(--green),var(--green-d));display:grid;place-items:center;color:#fff;font:900 46px var(--hd);margin-bottom:16px}
+.tm:nth-child(3n+2) .pic{background:linear-gradient(160deg,var(--orange),#a84f08)}
+.tm:nth-child(3n) .pic{background:linear-gradient(160deg,var(--sky),var(--blue))}
+.tm .pic img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.tm h3{font-size:20px;color:var(--green-d);margin-bottom:6px}
+.tm p{font-size:14px;color:var(--muted)}
+
+/* appeal */
+.appeal{position:relative;color:#fff;padding:120px 0;overflow:hidden}
+.appeal>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.appeal::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,63,23,.95),rgba(13,63,23,.8) 55%,rgba(13,63,23,.55))}
+.appeal .wrap{position:relative;z-index:1}
+.appeal .big{font:900 clamp(34px,5vw,64px)/1.05 var(--hd);max-width:820px;margin-bottom:20px;letter-spacing:-.02em}
+.appeal .lead{color:rgba(255,255,255,.85);margin-bottom:44px}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.way{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(4px);border-radius:6px;padding:26px}
+.way .ic{font-size:30px;margin-bottom:12px}
+.way h3{font-size:23px;margin-bottom:8px}
+.way p{font-size:15px;opacity:.88}
+.way .soon{display:inline-block;margin-top:16px;font:800 12px var(--hd);letter-spacing:.08em;text-transform:uppercase;color:#ffb069}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.contact dl{display:grid;grid-template-columns:auto 1fr;gap:14px 24px;font-size:16px;margin:8px 0 28px}
+.contact dt{font:800 13px var(--hd);letter-spacing:.08em;text-transform:uppercase;color:var(--orange);padding-top:3px}
+.contact dd a{color:var(--green);font-weight:600}
+.contact .logo{justify-self:center;width:min(380px,100%)}
+
+/* footer */
+footer{background:var(--ink);color:#c9d1cb;padding:64px 0 28px;font-size:14.5px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:36px}
+footer .fb{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+footer .fb img{width:52px;height:52px;border-radius:50%;background:#fff}
+footer .fb b{font:800 18px var(--hd);color:#fff;line-height:1.1}
+footer h4{font-size:15px;color:#fff;margin-bottom:14px;letter-spacing:.02em}
+footer ul{list-style:none}
+footer li{margin-bottom:9px}
+footer a{color:#c9d1cb;text-decoration:none}
+footer a:hover{color:#ffb069}
+.regbox{display:inline-block;margin-top:14px;border:1px solid #3a463e;border-radius:8px;padding:8px 12px;font-size:13px}
+.copy{border-top:1px solid #2c3630;margin-top:44px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;opacity:.7}
+
+/* members modal */
+.modal{position:fixed;inset:0;background:rgba(10,20,12,.6);z-index:110;display:none;place-items:center;padding:16px}
+.modal.on{display:grid}
+.mbox{background:#fff;border-radius:16px;width:min(720px,100%);max-height:90vh;overflow:auto;padding:30px;position:relative}
+.mbox .x{position:absolute;right:16px;top:12px;background:none;border:0;font-size:28px;cursor:pointer;color:var(--muted)}
+.mbox h2{font-size:30px;color:var(--green-d);margin-bottom:6px}
+.demo-note{font-size:13px;background:var(--sand);border-radius:10px;padding:10px 14px;color:var(--muted);margin:14px 0 18px}
+label{display:block;font-size:14px;font-weight:600;margin:12px 0 6px}
+input,select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:15px Inter;background:var(--cream)}
+input:focus,select:focus{outline:2px solid var(--green);border-color:transparent}
+.dash-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.kpi{background:var(--cream);border-radius:12px;padding:14px}
+.kpi span{font-size:13px;color:var(--muted)}
+.kpi b{display:block;font:800 22px var(--hd);color:var(--green-d)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:13px}
+td.amt{text-align:right;font-variant-numeric:tabular-nums}
+.row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-top:16px}
+
+/* app bits */
+.install{position:fixed;right:16px;bottom:86px;z-index:70;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.tabbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:none;justify-content:space-around;padding:8px 0 calc(8px + env(safe-area-inset-bottom));z-index:75}
+.tabbar a,.tabbar button{background:none;border:0;text-decoration:none;color:var(--muted);font:600 11px Inter;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.tabbar span{font-size:20px;line-height:1}
+
+@media (max-width:1020px){
+  .menu,.util .ml-wrap{display:none}
+  .burger{display:block}
+  .tabbar{display:flex}
+  .vgrid{grid-template-columns:1fr 1fr;gap:28px 0}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .tgrid{grid-template-columns:repeat(2,1fr)}
+  .about,.mission,.contact{grid-template-columns:1fr;gap:44px}
+  .mission .ph{max-width:520px}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .wrap{padding:0 20px}
+  .util{display:none}
+  .main-nav>.wrap{height:66px}
+  .announce{font-size:12.5px}.announce a{display:none}
+  .brand img{width:46px;height:46px}
+  .brand b{font-size:16px}
+  .hero{min-height:82vh}
+  .hero::after{background:linear-gradient(0deg,rgba(8,30,12,.92) 0%,rgba(8,30,12,.55) 55%,rgba(8,30,12,.15) 100%)}
+  .hero .reg,.slide-cap{display:none}
+  .dots{bottom:18px}
+  .vgrid,.pgrid,.ways,.ngrid,.fgrid{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .gal .t{grid-row:span 1}
+  .row,.kpis{grid-template-columns:1fr}
+  .mission .ph::before{left:-10px;top:-10px}
+}
+@media (min-width:1021px){body{padding-bottom:0}.install{bottom:22px}}
+</style>
+</head>
+<body>
+
+<div class="announce"><div class="wrap"><span data-i="ann">Registered NGO in Mwanza, Tanzania · Reg. No. 00NGO/R/10502</span><a href="#involved" data-i="annBtn">Partner with us</a></div></div>
+
+<header>
+  <div class="util"><div class="wrap">
+    <span class="ml-wrap"><button class="ml" onclick="openMembers()" data-i="memLogin">👤 Members login</button></span>
+    <div class="lang"><button id="sw" onclick="setLang('sw')">Kiswahili</button><button id="en" class="on" onclick="setLang('en')">English</button></div>
+  </div></div>
+  <div class="main-nav"><div class="wrap">
+    <a class="brand" href="#home"><img src="img/emblem.png" alt=""><div><b>Charity Foundation</b><small>CFT TANZANIA</small></div></a>
+    <ul class="menu">
+      <li><a href="#programmes"><span data-i="mWhat">What we do</span> <span class="car">▼</span></a>
+        <div class="mega"><div class="wrap">
+          <div class="intro"><h4 data-i="mWhat">What we do</h4><p data-i="mWhatP">Five programme areas that carry our eight objectives.</p></div>
+          <ul>
+            <li><a href="#programmes" data-i="pr1S">Wildlife &amp; climate resilience</a></li>
+            <li><a href="#programmes" data-i="pr2S">Climate-smart agriculture</a></li>
+            <li><a href="#programmes" data-i="pr3S">Women &amp; youth empowerment</a></li>
+            <li><a href="#programmes" data-i="pr4S">Education &amp; child protection</a></li>
+            <li><a href="#programmes" data-i="pr5S">Children &amp; youth support</a></li>
+            <li><a href="#field" data-i="nField">From the field</a></li>
+          </ul>
+          <a class="promo" href="#objectives"><img src="img/birds.jpg" alt=""><div><b data-i="objT">Our Objectives</b><span data-i="promoObj">The eight goals behind our work →</span></div></a>
+        </div></div></li>
+      <li><a href="#about"><span data-i="mAbout">About us</span> <span class="car">▼</span></a>
+        <div class="mega"><div class="wrap">
+          <div class="intro"><h4 data-i="mAbout">About us</h4><p data-i="mAboutP">Who we are, why we exist and the people behind CFT.</p></div>
+          <ul>
+            <li><a href="#about" data-i="whyK">Why we exist</a></li>
+            <li><a href="#objectives" data-i="objT">Our Objectives</a></li>
+            <li><a href="#team" data-i="teamT">Founding Members</a></li>
+            <li><a href="#news" data-i="newsT">News &amp; Events</a></li>
+            <li><a href="#contact" data-i="conK">Contact</a></li>
+          </ul>
+          <a class="promo" href="#team"><img src="img/maize.jpg" alt="" style="object-position:center 20%"><div><b data-i="teamT">Founding Members</b><span data-i="promoTeam">Meet the team →</span></div></a>
+        </div></div></li>
+      <li><a href="#involved"><span data-i="mInv">Get involved</span> <span class="car">▼</span></a>
+        <div class="mega"><div class="wrap">
+          <div class="intro"><h4 data-i="mInv">Get involved</h4><p data-i="mInvP">Join us for wildlife, communities and children.</p></div>
+          <ul>
+            <li><a href="#involved" data-i="w1T">Volunteer</a></li>
+            <li><a href="#involved" data-i="w2T">Partner with us</a></li>
+            <li><a href="#involved" data-i="w3T">Donate</a></li>
+            <li><a href="#contact" data-i="emailUsT">Email us</a></li>
+          </ul>
+          <a class="promo" href="#involved"><img src="img/garden.jpg" alt=""><div><b data-i="w2T">Partner with us</b><span data-i="promoInv">Work with us on shared goals →</span></div></a>
+        </div></div></li>
+      <li><a href="#involved" class="btn sm" style="color:#fff;margin-left:8px" data-i="mInv">Get involved</a></li>
+    </ul>
+    <button class="burger" onclick="drawer(true)" aria-label="Menu">☰</button>
+  </div></div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="top"><a class="brand" href="#home" onclick="drawer(false)"><img src="img/emblem.png" alt=""><div><b>Charity Foundation</b><small>CFT TANZANIA</small></div></a><button onclick="drawer(false)" aria-label="Close">×</button></div>
+  <div class="lang" style="margin-bottom:8px"><button onclick="setLang('sw')" class="dsw">Kiswahili</button><button onclick="setLang('en')" class="den">English</button></div>
+  <h5 data-i="mWhat">What we do</h5>
+  <a href="#programmes" data-i="progT">Our Programmes</a><a href="#objectives" data-i="objT">Our Objectives</a><a href="#field" data-i="nField">From the field</a>
+  <h5 data-i="mAbout">About us</h5>
+  <a href="#about" data-i="whyK">Why we exist</a><a href="#team" data-i="teamT">Founding Members</a><a href="#news" data-i="newsT">News &amp; Events</a><a href="#contact" data-i="conK">Contact</a>
+  <h5 data-i="mInv">Get involved</h5>
+  <a href="#involved" data-i="w1T">Volunteer</a><a href="#involved" data-i="w2T">Partner with us</a><a href="#" onclick="openMembers();return false" data-i="memLogin">👤 Members login</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="slides" id="slides">
+    <img class="on" src="img/hero.jpg" alt="" data-cap="g1" style="object-position:center 40%">
+    <img src="img/community.jpg" alt="" data-cap="g7" style="object-position:center 45%">
+    <img src="img/nursery2.jpg" alt="" data-cap="g8" style="object-position:center 60%">
+    <img src="img/school.jpg" alt="" data-cap="g9" style="object-position:center 40%">
+    <img src="img/birds.jpg" alt="" data-cap="g4">
+    <img src="img/woodlot.jpg" alt="" data-cap="g10">
+    <img src="img/garden.jpg" alt="" data-cap="g5" style="object-position:center 60%">
+  </div>
+  <div class="slide-cap" id="slideCap"></div>
+  <div class="dots" id="dots"></div>
+  <div class="wrap">
+    <div class="kicker">Charity Foundation CFT Tanzania</div>
+    <h1 data-i="heroTitle">Together for wildlife conservation, stronger communities and a sustainable future.</h1>
+    <p data-i="heroText">Charity Foundation CFT Tanzania works toward wildlife and natural resource conservation, climate-smart agriculture, community empowerment, education and child protection.</p>
+    <div class="acts"><a href="#involved" class="btn" data-i="mInv">Get involved</a><a href="#programmes" class="link" data-i="seeWhat">See what we do →</a></div>
+  </div>
+  <div class="reg">Reg. No. 00NGO/R/10502</div>
+</div>
+
+<!-- VALUES -->
+<div class="values"><div class="wrap vgrid">
+  <div class="v"><div class="n">01</div><h3 data-i="v1T">Rooted in communities</h3><p data-i="v1P">Our founding members work with villages and schools next to Tanzania's protected areas.</p></div>
+  <div class="v"><div class="n">02</div><h3 data-i="v2T">Conservation experience</h3><p data-i="v2P">Field ecology, GIS mapping, tourism and problem-animal management, with some members serving for over 20 years.</p></div>
+  <div class="v"><div class="n">03</div><h3 data-i="v3T">People and nature together</h3><p data-i="v3P">We link wildlife protection with farming, livelihoods, education and gender equality.</p></div>
+  <div class="v"><div class="n">04</div><h3 data-i="v4T">Registered and accountable</h3><p data-i="v4P">A registered NGO (00NGO/R/10502) based in Buhongwa, Mwanza.</p></div>
+</div></div>
+
+<!-- MISSION -->
+<section>
+  <div class="wrap mission">
+    <div class="ph"><img src="img/trees.jpg" alt="Young trees planted in a grassy field" loading="lazy"></div>
+    <div>
+      <div class="kicker" data-i="misK">Our mission</div>
+      <p class="statement" data-i="misS">We work for <a href="#programmes">wildlife and natural resources</a>, <a href="#programmes">climate-smart farming</a>, <a href="#programmes">empowered communities</a>, <a href="#programmes">education</a> and <a href="#programmes">child protection</a>.</p>
+      <a href="#objectives" class="btn outline" data-i="seeObj">Read our objectives</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<section id="programmes" class="progs-sec">
+  <div class="wrap">
+    <div class="phead">
+      <div><div class="kicker" data-i="progK">What we plan to do</div><h2 class="h2" data-i="progT">Our Programmes</h2><p class="lead" data-i="progP">Our eight objectives are delivered through five programme areas.</p></div>
+    </div>
+    <div class="pgrid">
+      <div class="pcard"><div class="img"><img src="img/birds.jpg" alt="White-faced whistling ducks at a wetland" loading="lazy"></div><div class="body"><div class="lbl" data-i="tag12">Objectives 1 &amp; 2</div><h3 data-i="pr1T">Wildlife Conservation, Natural Resources and Climate Resilience</h3><p data-i="pr1P">Proposed work on habitat protection, biodiversity monitoring, human-wildlife conflict mitigation and community participation in conservation.</p></div></div>
+      <div class="pcard"><div class="img"><img src="img/garden.jpg" alt="Rows of leafy vegetables" loading="lazy" style="object-position:center 70%"></div><div class="body"><div class="lbl" data-i="tag34">Objectives 3 &amp; 4</div><h3 data-i="pr2T">Climate-Smart Agriculture, Food Security and Rural Livelihoods</h3><p data-i="pr2P">Helping farming households adopt practices that cope with a changing climate, grow more nutritious food and earn a more secure living.</p></div></div>
+      <div class="pcard"><div class="img"><img src="img/community.jpg" alt="A community meeting with women and children" loading="lazy" style="object-position:center 50%"></div><div class="body"><div class="lbl" data-i="tag56">Objectives 5 &amp; 6</div><h3 data-i="pr3T">Economic Empowerment, Leadership and Gender Equality</h3><p data-i="pr3P">Supporting women and young people with income-generating skills, and encouraging equal participation and leadership in their communities.</p></div></div>
+      <div class="pcard"><div class="img"><img src="img/school.jpg" alt="A conservation lesson with school pupils" loading="lazy" style="object-position:center 40%"></div><div class="body"><div class="lbl" data-i="tag7">Objective 7</div><h3 data-i="pr4T">Education and Child Protection</h3><p data-i="pr4P">Promoting access to quality education, environmental learning in schools, and safe environments where children are protected.</p></div></div>
+      <div class="pcard"><div class="img">🤝</div><div class="body"><div class="lbl" data-i="tag8">Objective 8</div><h3 data-i="pr5T">Vulnerable Children and Youth Support</h3><p data-i="pr5P">Reaching vulnerable children and youth, including those without proper shelter and care, with support that helps them build a better future.</p></div></div>
+      <div class="pcard"><div class="img"><img src="img/maize.jpg" alt="Checking a maize crop" loading="lazy" style="object-position:center 25%"></div><div class="body"><div class="lbl" data-i="allLbl">All programmes</div><h3 data-i="workT">Work with us</h3><p data-i="workP">Communities, schools, government and partners are welcome to join any of our programme areas.</p><a href="#involved" class="link" style="margin-top:14px;align-self:flex-start" data-i="mInv">Get involved</a></div></div>
+    </div>
+    <p class="pnote" data-i="progNote">These describe what each programme intends to do; completed activities will be reported under News and From the field.</p>
+  </div>
+</section>
+
+<!-- ABOUT + OBJECTIVES -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="kicker" data-i="whyK">Why we exist</div>
+      <h2 class="h2" data-i="whyT">Sustainable and inclusive development</h2>
+      <p data-i="whyP1">Communities across the United Republic of Tanzania face growing social, economic and environmental challenges: pollution and climate change, unsustainable use of land, forests, minerals and wildlife, limited access to quality education, and gender-based violence.</p>
+      <p data-i="whyP2">Many households also struggle with poor nutrition, disease and poverty, while women remain under-represented in leadership and more children are living on the streets. Our founding members established CFT to empower communities and promote national well-being.</p>
+    </div>
+    <div id="objectives">
+      <div class="kicker" data-i="objK">Malengo Yetu</div>
+      <h3 style="font-size:32px;font-weight:900;color:var(--green-d);margin-bottom:18px" data-i="objT">Our Objectives</h3>
+      <ol class="olist">
+        <li data-i="o1">To promote wildlife conservation and climate resilience</li>
+        <li data-i="o2">To advocate sustainable natural resource management</li>
+        <li data-i="o3">To promote climate-smart agriculture</li>
+        <li data-i="o4">To enhance food security and rural livelihoods</li>
+        <li data-i="o5">To strengthen economic and social empowerment</li>
+        <li data-i="o6">To promote leadership and gender equality</li>
+        <li data-i="o7">To promote education and child protection</li>
+        <li data-i="o8">To support vulnerable children and youth</li>
+      </ol>
+      <p class="swnote hidden" id="swNote">Tafsiri ya Kiswahili ni kwa ajili ya mawasiliano; maneno rasmi yaliyoidhinishwa ni ya Kiingereza.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FROM THE FIELD -->
+<section id="field" class="field">
+  <div class="wrap">
+    <div class="kicker" data-i="projK">From the field</div>
+    <h2 class="h2" data-i="projT">Conservation, farming and learning</h2>
+    <div class="gal" id="gal">
+      <figure class="w t"><img src="img/community.jpg" alt="" loading="lazy"><figcaption data-i="g7">Community conservation meeting</figcaption></figure>
+      <figure class="w"><img src="img/school.jpg" alt="" loading="lazy" style="object-position:center 35%"><figcaption data-i="g9">Conservation lesson at a school</figcaption></figure>
+      <figure><img src="img/poster.jpg" alt="" loading="lazy"><figcaption data-i="g11">Conservation education materials</figcaption></figure>
+      <figure class="w"><img src="img/tools.jpg" alt="" loading="lazy"><figcaption data-i="g12">Tree-planting tools</figcaption></figure>
+      <figure class="w"><img src="img/nursery2.jpg" alt="" loading="lazy" style="object-position:center 65%"><figcaption data-i="g8">Tree nursery</figcaption></figure>
+      <figure class="t"><img src="img/maize.jpg" alt="" loading="lazy" style="object-position:center 20%"><figcaption data-i="g2">Checking a maize crop</figcaption></figure>
+      <figure><img src="img/nursery.jpg" alt="" loading="lazy"><figcaption data-i="g13">Seedling pots</figcaption></figure>
+      <figure class="w"><img src="img/hero.jpg" alt="" loading="lazy"><figcaption data-i="g1">Field visit on an escarpment</figcaption></figure>
+      <figure><img src="img/woodlot.jpg" alt="" loading="lazy"><figcaption data-i="g10">Growing trees</figcaption></figure>
+      <figure><img src="img/trees.jpg" alt="" loading="lazy"><figcaption data-i="g3">Tree planting</figcaption></figure>
+      <figure class="w"><img src="img/birds.jpg" alt="" loading="lazy"><figcaption data-i="g4">Wetland birds</figcaption></figure>
+      <figure class="w"><img src="img/poultry.jpg" alt="" loading="lazy"><figcaption data-i="g6">Poultry keeping</figcaption></figure>
+      <figure class="w"><img src="img/garden.jpg" alt="" loading="lazy" style="object-position:center 60%"><figcaption data-i="g5">Vegetable garden</figcaption></figure>
+    </div>
+  </div>
+</section>
+<div class="lightbox" id="lb" onclick="this.classList.remove('on')"><img alt=""></div>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="wrap">
+    <div class="kicker" data-i="newsK">Stay updated</div>
+    <h2 class="h2" data-i="newsT">News &amp; Events</h2>
+    <div class="ngrid">
+      <div class="ncard"><div class="lbl" data-i="nL1">News</div><h3 data-i="nT1">Stories coming soon</h3><p data-i="nP1">Updates from our programmes will be published here.</p></div>
+      <div class="ncard"><div class="lbl" data-i="nL2">Events</div><h3 data-i="nT2">Upcoming activities</h3><p data-i="nP2">Community meetings, school visits and field days will be announced here.</p></div>
+      <div class="ncard"><div class="lbl" data-i="nL3">Contact</div><h3 data-i="nT3">Want to hear from us?</h3><p data-i="nP3">Email us and we will share news of our work.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="team-sec">
+  <div class="wrap">
+    <div class="kicker" data-i="teamK">Waanzilishi</div>
+    <h2 class="h2" data-i="teamT">Founding Members</h2>
+    <p class="lead" data-i="teamP">Experienced conservationists and educators who work with communities living next to Tanzania's protected areas.</p>
+    <div class="tgrid">
+      <div class="tm"><div class="pic">HM</div><h3>Happy Frank Mollel</h3><p data-i="b1">Conserves wildlife through ecological monitoring and field-based assessments, and supervises tourism in protected areas. Gives conservation education to villagers next to protected areas and to students in nearby schools.</p></div>
+      <div class="tm"><div class="pic"><img src="img/daud.jpg" alt="Daud Gunda" loading="lazy"></div><h3>Daud Gunda</h3><p data-i="b2">Carries out wildlife ecology and tourism work, including ecological assessment and monitoring, and produces GIS maps and spatial data for conservation planning. Develops wildlife teaching aids and gives conservation education to communities and students.</p></div>
+      <div class="tm"><div class="pic"><img src="img/marry.jpg" alt="Marry Stephen" loading="lazy"></div><h3>Marry Stephen</h3><p data-i="b3">Supports wildlife conservation and habitat protection through fieldwork and community engagement, and assists in controlling problem animals. Teaches villagers and school students practices that reduce human-wildlife conflict.</p></div>
+      <div class="tm"><div class="pic">VM</div><h3>Vaileth Mvungi</h3><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
+      <div class="tm"><div class="pic">ZK</div><h3>Ziada Ally Kahando</h3><p data-i="b5">More than 20 years in wildlife conservation, community conservation education and problem-animal control. Over four years in the store keeping unit at Malihai Clubs of Tanzania – Lake Zone.</p></div>
+      <div class="tm"><div class="pic"><img src="img/geofrey.jpg" alt="Geofrey Malegesi" loading="lazy"></div><h3>Geofrey Malegesi</h3><p data-i="b6">Supports wildlife conservation and habitat protection through field activities and community engagement, and assists in controlling problem animals. Gives conservation education to villagers and school students.</p></div>
+      <div class="tm"><div class="pic">HD</div><h3>Hidaya Danda</h3><p data-i="b7">Works in conservation fieldwork, community education and problem-animal control. Most of her work focuses on empowering women and children living near game reserves.</p></div>
+      <div class="tm"><div class="pic">DR</div><h3>Doreen Ruta</h3><p data-i="b8">Supports conservation through hands-on fieldwork and ecological observation, and helps oversee tourism in protected areas. Gives conservation lessons to communities and nearby schools.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPEAL / GET INVOLVED -->
+<section id="involved" class="appeal">
+  <img src="img/garden.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <div class="kicker" style="color:#ffb069" data-i="invK">Join us</div>
+    <p class="big" data-i="invBig">Protect wildlife. Grow food. Educate children. Do it with us.</p>
+    <p class="lead" data-i="invP">There are many ways to support our work for wildlife, communities and children.</p>
+    <div class="ways">
+      <div class="way"><div class="ic">🙋</div><h3 data-i="w1T">Volunteer</h3><p data-i="w1P">Give your time and skills to conservation, farming and education activities.</p><span class="soon" data-i="soon">Details coming soon</span></div>
+      <div class="way"><div class="ic">🤝</div><h3 data-i="w2T">Partner with us</h3><p data-i="w2P">Organisations, schools and government bodies can work with us on shared goals.</p><span class="soon" data-i="soon">Details coming soon</span></div>
+      <div class="way"><div class="ic">💚</div><h3 data-i="w3T">Donate</h3><p data-i="w3P">Your support will reach communities directly. Donation channels will be published here once verified.</p><span class="soon" data-i="soon">Details coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <div class="kicker" data-i="conK">Contact</div>
+      <h2 class="h2" data-i="conT">Find us</h2>
+      <dl>
+        <dt data-i="dAddr">Address</dt><dd>West Buhongwa Street, Buhongwa Ward, Nyamagana District, Mwanza Region, Tanzania</dd>
+        <dt data-i="dPost">Post</dt><dd>P.O. Box 11760, Mwanza</dd>
+        <dt data-i="dEmail">Email</dt><dd><a href="mailto:charityfoundationtanzaniacft@gmail.com">charityfoundationtanzaniacft@gmail.com</a></dd>
+        <dt data-i="dReg">Registration</dt><dd>00NGO/R/10502</dd>
+      </dl>
+      <a class="btn" href="mailto:charityfoundationtanzaniacft@gmail.com?subject=Message%20from%20CFT%20website" data-i="emailUs">✉️ Email us</a>
+    </div>
+    <img class="logo" src="img/logo.jpg" alt="Charity Foundation CFT Tanzania logo" loading="lazy">
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fb"><img src="img/emblem.png" alt=""><b>Charity Foundation<br>CFT Tanzania</b></div>
+        <p data-i="footAbout">Together for wildlife conservation, stronger communities and a sustainable future.</p>
+        <div class="regbox">Reg. No. 00NGO/R/10502</div>
+      </div>
+      <div><h4 data-i="mWhat">What we do</h4><ul>
+        <li><a href="#programmes" data-i="progT">Our Programmes</a></li><li><a href="#objectives" data-i="objT">Our Objectives</a></li><li><a href="#field" data-i="nField">From the field</a></li></ul></div>
+      <div><h4 data-i="mAbout">About us</h4><ul>
+        <li><a href="#about" data-i="whyK">Why we exist</a></li><li><a href="#team" data-i="teamT">Founding Members</a></li><li><a href="#news" data-i="newsT">News &amp; Events</a></li><li><a href="#" onclick="openMembers();return false" data-i="memLogin">👤 Members login</a></li></ul></div>
+      <div><h4 data-i="conK">Contact</h4><p>West Buhongwa Street, Buhongwa<br>Nyamagana, Mwanza, Tanzania<br>P.O. Box 11760<br><a href="mailto:charityfoundationtanzaniacft@gmail.com">charityfoundationtanzaniacft@gmail.com</a></p></div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> Charity Foundation CFT Tanzania</span><span data-i="madeTz">Mwanza, Tanzania</span></div>
+  </div>
+</footer>
+
+<!-- MEMBERS MODAL -->
+<div class="modal" id="members" onclick="if(event.target===this)closeMembers()">
+  <div class="mbox">
+    <button class="x" onclick="closeMembers()" aria-label="Close">×</button>
+    <div class="kicker" data-i="memK">For CFT members</div>
+    <h2 data-i="memT">Members Area</h2>
+    <div class="demo-note" data-i="demoNote">Preview: entries are saved only on this device for now. Once connected to the foundation's account, all members will share the same records with a secure login.</div>
+    <div id="login">
+      <label data-i="yourName">Your name</label>
+      <input id="mName" placeholder="e.g. Amina Juma">
+      <label data-i="pin">Member PIN</label>
+      <input id="mPin" type="password" placeholder="••••">
+      <button class="btn" style="margin-top:18px" onclick="login()" data-i="signIn">Sign in</button>
+    </div>
+    <div id="dash" class="hidden">
+      <div class="dash-top"><h3 style="font-size:22px;color:var(--green-d)"><span data-i="welcome">Welcome</span>, <span id="who"></span></h3><button class="btn outline sm" onclick="logout()" data-i="signOut">Sign out</button></div>
+      <div class="kpis">
+        <div class="kpi"><span data-i="k1">Total contributions</span><b id="kTotal">TSh 0</b></div>
+        <div class="kpi"><span data-i="k2">Your contributions</span><b id="kMine">TSh 0</b></div>
+      </div>
+      <table><thead><tr><th data-i="thDate">Date</th><th data-i="thMember">Member</th><th data-i="thPurpose">Purpose</th><th style="text-align:right" data-i="thAmount">Amount</th></tr></thead><tbody id="rows"></tbody></table>
+      <div class="row">
+        <div><label data-i="amount">Amount (TSh)</label><input id="cAmt" type="number" min="0" placeholder="10000"></div>
+        <div><label data-i="purpose">Purpose</label><select id="cPur"><option value="monthly" data-i="oMonthly">Monthly contribution</option><option value="project" data-i="oProject">Project fund</option><option value="emergency" data-i="oEmergency">Emergency support</option></select></div>
+        <button class="btn" onclick="addContribution()" data-i="add">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="btn install hidden" id="installBtn" data-i="install">📲 Install app</button>
+
+<nav class="tabbar">
+  <a href="#home"><span>🏠</span><b data-i="tHome">Home</b></a>
+  <a href="#programmes"><span>🌿</span><b data-i="tProg">Programmes</b></a>
+  <a href="#field"><span>📷</span><b data-i="tField">Field</b></a>
+  <a href="#involved"><span>💚</span><b data-i="tInv">Join</b></a>
+  <button onclick="openMembers()"><span>👥</span><b data-i="tMem">Members</b></button>
+</nav>
+
+<script>
+const SW = {
+  ann:"Shirika lisilo la kiserikali lililosajiliwa, Mwanza, Tanzania · Na. 00NGO/R/10502", annBtn:"Shirikiana nasi",
+  memLogin:"👤 Wanachama: Ingia",
+  mWhat:"Tunachofanya", mWhatP:"Maeneo matano ya programu yanayobeba malengo yetu manane.",
+  pr1S:"Wanyamapori na tabianchi", pr2S:"Kilimo kinachohimili tabianchi", pr3S:"Uwezeshaji wa wanawake na vijana", pr4S:"Elimu na ulinzi wa mtoto", pr5S:"Msaada kwa watoto na vijana", nField:"Kutoka uwandani",
+  promoObj:"Malengo manane ya kazi yetu →", mAbout:"Kuhusu sisi", mAboutP:"Sisi ni nani, kwa nini tupo na watu walio nyuma ya CFT.", promoTeam:"Kutana na timu →",
+  mInv:"Shiriki nasi", mInvP:"Ungana nasi kwa ajili ya wanyamapori, jamii na watoto.", emailUsT:"Tutumie barua pepe", promoInv:"Shirikiana nasi katika malengo ya pamoja →",
+  heroTitle:"Pamoja kwa uhifadhi wa wanyamapori, jamii imara na mustakabali endelevu.",
+  heroText:"Charity Foundation CFT Tanzania inafanya kazi ya uhifadhi wa wanyamapori na maliasili, kilimo kinachohimili mabadiliko ya tabianchi, uwezeshaji wa jamii, elimu na ulinzi wa mtoto.",
+  seeWhat:"Ona tunachofanya →",
+  v1T:"Tumejikita katika jamii", v1P:"Wanachama waanzilishi wanafanya kazi na vijiji na shule zilizo jirani na maeneo yaliyohifadhiwa nchini Tanzania.",
+  v2T:"Uzoefu katika uhifadhi", v2P:"Ikolojia ya uwandani, ramani za GIS, utalii na udhibiti wa wanyama wakorofi, huku baadhi ya wanachama wakiwa na uzoefu wa zaidi ya miaka 20.",
+  v3T:"Watu na mazingira pamoja", v3P:"Tunaunganisha ulinzi wa wanyamapori na kilimo, kipato, elimu na usawa wa kijinsia.",
+  v4T:"Tumesajiliwa na tunawajibika", v4P:"Shirika lisilo la kiserikali lililosajiliwa (00NGO/R/10502) lenye makao Buhongwa, Mwanza.",
+  misK:"Dhamira yetu",
+  misS:'Tunafanya kazi kwa ajili ya <a href="#programmes">wanyamapori na maliasili</a>, <a href="#programmes">kilimo kinachohimili tabianchi</a>, <a href="#programmes">jamii zilizowezeshwa</a>, <a href="#programmes">elimu</a> na <a href="#programmes">ulinzi wa mtoto</a>.',
+  seeObj:"Soma malengo yetu",
+  progK:"Tunachopanga kufanya", progT:"Programu Zetu", progP:"Malengo yetu manane yanatekelezwa kupitia maeneo matano ya programu.",
+  tag12:"Malengo 1 na 2", tag34:"Malengo 3 na 4", tag56:"Malengo 5 na 6", tag7:"Lengo 7", tag8:"Lengo 8",
+  pr1T:"Uhifadhi wa Wanyamapori, Maliasili na Ustahimilivu wa Tabianchi",
+  pr1P:"Kazi zinazopendekezwa za kulinda makazi ya wanyamapori, ufuatiliaji wa bioanuai, kupunguza migogoro kati ya binadamu na wanyamapori, na ushiriki wa jamii katika uhifadhi.",
+  pr2T:"Kilimo Kinachohimili Tabianchi, Usalama wa Chakula na Maisha ya Vijijini",
+  pr2P:"Kusaidia kaya za wakulima kutumia mbinu zinazostahimili mabadiliko ya tabianchi, kuzalisha chakula chenye lishe zaidi na kupata kipato cha uhakika.",
+  pr3T:"Uwezeshaji wa Kiuchumi, Uongozi na Usawa wa Kijinsia",
+  pr3P:"Kuwasaidia wanawake na vijana kupata ujuzi wa kujiongezea kipato, na kuhamasisha ushiriki sawa na uongozi katika jamii zao.",
+  pr4T:"Elimu na Ulinzi wa Mtoto",
+  pr4P:"Kukuza upatikanaji wa elimu bora, elimu ya mazingira shuleni, na mazingira salama ambapo watoto wanalindwa.",
+  pr5T:"Msaada kwa Watoto na Vijana Walio Hatarini",
+  pr5P:"Kuwafikia watoto na vijana walio katika mazingira hatarishi, wakiwemo wasio na makazi na malezi bora, kwa msaada utakaowasaidia kujenga maisha bora.",
+  allLbl:"Programu zote", workT:"Fanya kazi nasi", workP:"Jamii, shule, serikali na wadau wanakaribishwa kujiunga katika eneo lolote la programu zetu.",
+  progNote:"Haya yanaeleza kile kila programu inakusudia kufanya; shughuli zilizokamilika zitaripotiwa kwenye Habari na Kutoka uwandani.",
+  whyK:"Kwa nini tupo", whyT:"Maendeleo endelevu na jumuishi",
+  whyP1:"Jamii kote katika Jamhuri ya Muungano wa Tanzania zinakabiliwa na changamoto zinazoongezeka za kijamii, kiuchumi na kimazingira: uchafuzi wa mazingira na mabadiliko ya tabianchi, matumizi yasiyo endelevu ya ardhi, misitu, madini na wanyamapori, upungufu wa elimu bora, na ukatili wa kijinsia.",
+  whyP2:"Kaya nyingi pia zinakabiliwa na lishe duni, magonjwa na umaskini, huku wanawake wakiwa wachache katika uongozi na watoto wengi wakiishi mitaani. Wanachama waanzilishi walianzisha CFT ili kuziwezesha jamii na kukuza ustawi wa taifa.",
+  objK:"Our Objectives", objT:"Malengo Yetu",
+  o1:"Kukuza uhifadhi wa wanyamapori na ustahimilivu dhidi ya mabadiliko ya tabianchi", o2:"Kutetea usimamizi endelevu wa maliasili", o3:"Kukuza kilimo kinachohimili mabadiliko ya tabianchi", o4:"Kuimarisha usalama wa chakula na maisha ya vijijini",
+  o5:"Kuimarisha uwezeshaji wa kiuchumi na kijamii", o6:"Kukuza uongozi na usawa wa kijinsia", o7:"Kukuza elimu na ulinzi wa mtoto", o8:"Kusaidia watoto na vijana walio katika mazingira hatarishi",
+  projK:"Kutoka uwandani", projT:"Uhifadhi, kilimo na elimu",
+  g1:"Ziara ya uwandani kwenye mteremko", g2:"Kukagua zao la mahindi", g3:"Upandaji miti", g4:"Ndege wa ardhioevu", g5:"Bustani ya mboga", g6:"Ufugaji wa kuku", g7:"Mkutano wa uhifadhi na jamii", g8:"Kitalu cha miche ya miti", g9:"Somo la uhifadhi shuleni", g10:"Miti inayokua", g11:"Vifaa vya elimu ya uhifadhi", g12:"Vifaa vya kupanda miti", g13:"Viriba vya miche",
+  newsK:"Pata taarifa", newsT:"Habari na Matukio",
+  nL1:"Habari", nT1:"Habari zinakuja hivi karibuni", nP1:"Taarifa kutoka kwenye programu zetu zitachapishwa hapa.",
+  nL2:"Matukio", nT2:"Shughuli zijazo", nP2:"Mikutano ya jamii, ziara za shule na siku za uwandani zitatangazwa hapa.",
+  nL3:"Mawasiliano", nT3:"Ungependa kupata taarifa zetu?", nP3:"Tutumie barua pepe na tutakushirikisha habari za kazi yetu.",
+  teamK:"Founding Members", teamT:"Wanachama Waanzilishi", teamP:"Wahifadhi na waelimishaji wenye uzoefu wanaofanya kazi na jamii zinazoishi jirani na maeneo yaliyohifadhiwa nchini Tanzania.",
+  b1:"Anahifadhi wanyamapori kupitia ufuatiliaji wa kiikolojia na tathmini za uwandani, na anasimamia shughuli za utalii katika maeneo yaliyohifadhiwa. Anatoa elimu ya uhifadhi kwa wanavijiji wanaoishi jirani na maeneo yaliyohifadhiwa na kwa wanafunzi wa shule za jirani.",
+  b2:"Anafanya kazi za ikolojia ya wanyamapori na utalii, zikiwemo tathmini na ufuatiliaji wa kiikolojia, na anatengeneza ramani za GIS na takwimu za kijiografia kwa ajili ya mipango ya uhifadhi. Anaandaa vifaa vya kufundishia kuhusu wanyamapori na kutoa elimu ya uhifadhi kwa jamii na wanafunzi.",
+  b3:"Anasaidia uhifadhi wa wanyamapori na ulinzi wa makazi yao kupitia kazi za uwandani na ushirikishaji wa jamii, na husaidia kudhibiti wanyama wakorofi. Anawafundisha wanavijiji na wanafunzi mbinu za kupunguza migogoro kati ya binadamu na wanyamapori.",
+  b4:"Anasaidia uhifadhi kupitia kazi za uwandani na shughuli za uhifadhi za kijamii, na hushiriki kudhibiti wanyama wakorofi. Anatoa elimu ya uhifadhi kwa wanavijiji na wanafunzi wa shule za jirani.",
+  b5:"Ana uzoefu wa zaidi ya miaka 20 katika uhifadhi wa wanyamapori, elimu ya uhifadhi kwa jamii na udhibiti wa wanyama wakorofi. Amefanya kazi kwa zaidi ya miaka minne katika kitengo cha utunzaji stoo, Malihai Clubs of Tanzania – Kanda ya Ziwa.",
+  b6:"Anasaidia uhifadhi wa wanyamapori na ulinzi wa makazi yao kupitia kazi za uwandani na ushirikishaji wa jamii, na husaidia kudhibiti wanyama wakorofi. Anatoa elimu ya uhifadhi kwa wanavijiji na wanafunzi.",
+  b7:"Anafanya kazi za uhifadhi uwandani, elimu kwa jamii na udhibiti wa wanyama wakorofi. Sehemu kubwa ya kazi yake inalenga kuwawezesha wanawake na watoto wanaoishi jirani na mapori ya akiba.",
+  b8:"Anasaidia uhifadhi kupitia kazi za uwandani na uchunguzi wa kiikolojia, na husaidia kusimamia utalii katika maeneo yaliyohifadhiwa. Anatoa masomo ya uhifadhi kwa jamii na shule za jirani.",
+  invK:"Ungana nasi", invBig:"Linda wanyamapori. Zalisha chakula. Elimisha watoto. Fanya hivyo pamoja nasi.",
+  invP:"Kuna njia nyingi za kuunga mkono kazi yetu kwa ajili ya wanyamapori, jamii na watoto.",
+  w1T:"Jitolee", w1P:"Toa muda na ujuzi wako katika shughuli za uhifadhi, kilimo na elimu.",
+  w2T:"Shirikiana nasi", w2P:"Mashirika, shule na taasisi za serikali zinaweza kushirikiana nasi katika malengo ya pamoja.",
+  w3T:"Changia", w3P:"Mchango wako utazifikia jamii moja kwa moja. Njia za kuchangia zitawekwa hapa baada ya kuthibitishwa.",
+  soon:"Taarifa zinakuja hivi karibuni",
+  conK:"Mawasiliano", conT:"Tupate", dAddr:"Anwani", dPost:"Sanduku la Posta", dEmail:"Barua pepe", dReg:"Usajili", emailUs:"✉️ Tutumie barua pepe",
+  footAbout:"Pamoja kwa uhifadhi wa wanyamapori, jamii imara na mustakabali endelevu.", madeTz:"Mwanza, Tanzania",
+  memK:"Kwa wanachama wa CFT", memT:"Eneo la Wanachama",
+  demoNote:"Onyesho: kwa sasa taarifa zinahifadhiwa kwenye kifaa hiki tu. Ikishaunganishwa na akaunti ya taasisi, wanachama wote watatumia kumbukumbu zilezile kwa kuingia kwa usalama.",
+  yourName:"Jina lako", pin:"PIN ya mwanachama", signIn:"Ingia", signOut:"Toka", welcome:"Karibu",
+  k1:"Jumla ya michango", k2:"Michango yako", thDate:"Tarehe", thMember:"Mwanachama", thPurpose:"Madhumuni", thAmount:"Kiasi",
+  amount:"Kiasi (TSh)", purpose:"Madhumuni", oMonthly:"Mchango wa mwezi", oProject:"Mfuko wa mradi", oEmergency:"Msaada wa dharura", add:"Ongeza",
+  install:"📲 Pakua programu", tHome:"Mwanzo", tProg:"Programu", tField:"Uwandani", tInv:"Jiunge", tMem:"Wanachama"
+};
+const PURPOSE={en:{monthly:"Monthly contribution",project:"Project fund",emergency:"Emergency support"},sw:{monthly:"Mchango wa mwezi",project:"Mfuko wa mradi",emergency:"Msaada wa dharura"}};
+let lang="en", user=null;
+document.querySelectorAll('[data-i]').forEach(el=>el.dataset.en=el.innerHTML);
+function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function setLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll('#en,.den').forEach(b=>b.classList.toggle('on',l==='en'));
+  document.querySelectorAll('#sw,.dsw').forEach(b=>b.classList.toggle('on',l==='sw'));
+  document.querySelectorAll('[data-i]').forEach(el=>{el.innerHTML=l==='en'?el.dataset.en:(SW[el.dataset.i]||el.dataset.en)});
+  document.getElementById('swNote').classList.toggle('hidden',l!=='sw');
+  renderRows(); store('cft-lang',l);
+  if(typeof slides!=='undefined') document.getElementById('slideCap').textContent=capText(slides[cur].dataset.cap);
+}
+function drawer(on){document.getElementById('drawer').classList.toggle('on',on)}
+document.querySelectorAll('#drawer a[href^="#"]').forEach(a=>a.addEventListener('click',()=>drawer(false)));
+document.querySelectorAll('#gal img').forEach(img=>img.onclick=()=>{const lb=document.getElementById('lb');lb.querySelector('img').src=img.src;lb.classList.add('on')});
+
+// members (device-only preview)
+function openMembers(){drawer(false);document.getElementById('members').classList.add('on')}
+function closeMembers(){document.getElementById('members').classList.remove('on')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMembers();drawer(false);document.getElementById('lb').classList.remove('on')}});
+let contribs=store('cft-contribs')||[];
+function fmt(n){return "TSh "+Number(n).toLocaleString('en-US')}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function login(){const n=document.getElementById('mName').value.trim(); if(!n){document.getElementById('mName').focus();return} user=n; store('cft-user',n); showDash()}
+function logout(){user=null; store('cft-user',null); document.getElementById('dash').classList.add('hidden'); document.getElementById('login').classList.remove('hidden')}
+function showDash(){document.getElementById('who').textContent=user; document.getElementById('login').classList.add('hidden'); document.getElementById('dash').classList.remove('hidden'); renderRows()}
+function addContribution(){
+  const a=+document.getElementById('cAmt').value; if(!a||a<=0){document.getElementById('cAmt').focus();return}
+  contribs.unshift({d:new Date().toISOString().slice(0,10),m:user,p:document.getElementById('cPur').value,a});
+  store('cft-contribs',contribs); document.getElementById('cAmt').value=''; renderRows();
+}
+function renderRows(){
+  document.getElementById('rows').innerHTML=contribs.length?contribs.map(c=>`<tr><td>${c.d}</td><td>${esc(c.m)}</td><td>${PURPOSE[lang][c.p]}</td><td class="amt">${fmt(c.a)}</td></tr>`).join('')
+    :`<tr><td colspan="4" style="color:var(--muted)">${lang==='en'?'No contributions recorded yet.':'Bado hakuna michango iliyorekodiwa.'}</td></tr>`;
+  document.getElementById('kTotal').textContent=fmt(contribs.reduce((s,c)=>s+c.a,0));
+  document.getElementById('kMine').textContent=fmt(contribs.filter(c=>c.m===user).reduce((s,c)=>s+c.a,0));
+}
+
+// installable app
+let deferred=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;document.getElementById('installBtn').classList.remove('hidden')});
+document.getElementById('installBtn').onclick=async()=>{if(!deferred)return;deferred.prompt();await deferred.userChoice;deferred=null;document.getElementById('installBtn').classList.add('hidden')};
+if('serviceWorker' in navigator && location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+
+// hero slideshow
+const slides=[...document.querySelectorAll('#slides img')], dotsEl=document.getElementById('dots'); let cur=0, timer;
+const capText=k=>{const el=document.querySelector('[data-i="'+k+'"]'); return el?el.textContent:''};
+slides.forEach((_,i)=>{const d=document.createElement('button'); d.setAttribute('aria-label','Slide '+(i+1)); d.onclick=()=>{go(i);restart()}; dotsEl.appendChild(d)});
+function go(i){slides[cur].classList.remove('on'); dotsEl.children[cur].classList.remove('on'); cur=(i+slides.length)%slides.length; slides[cur].classList.add('on'); dotsEl.children[cur].classList.add('on'); document.getElementById('slideCap').textContent=capText(slides[cur].dataset.cap)}
+function restart(){clearInterval(timer); timer=setInterval(()=>go(cur+1),6000)}
+go(0); restart();
+document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(timer):restart());
+let tx=null; const hero=document.getElementById('home');
+hero.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+hero.addEventListener('touchend',e=>{if(tx===null)return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50){go(cur+(dx<0?1:-1));restart()} tx=null});
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+if(store('cft-lang')==='sw') setLang('sw'); else {document.querySelector('.den').classList.add('on'); renderRows()}
+const saved=store('cft-user'); if(saved){user=saved; showDash()}
+</script>
+</body>
+</html>
