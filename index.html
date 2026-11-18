@@ -180,7 +180,16 @@ header{position:sticky;top:0;z-index:80;background:#fff;box-shadow:0 1px 0 var(-
 
 /* team */
 .team-sec{background:var(--cream)}
-.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 24px;margin-top:44px}
+.tgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px 22px;margin-top:44px}
+.tgrid.lgrid3{grid-template-columns:repeat(2,minmax(0,300px));justify-content:center;gap:32px;margin-top:40px}
+#leaders{background:#fff}
+.dmsg{display:grid;grid-template-columns:280px 1fr;gap:44px;align-items:center;background:var(--cream);border-radius:20px;padding:36px;margin-top:28px;border-left:6px solid var(--orange)}
+.dmsg img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
+.dmsg blockquote p{font-size:17px;line-height:1.7;color:var(--ink);margin-bottom:12px}
+.dmsg blockquote p:first-child{font:800 24px var(--hd);color:var(--green-d)}
+.dsig{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.dsig b{display:block;font:800 18px var(--hd);color:var(--green-d)}
+.dsig span{font:800 12px var(--hd);letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
 .tm .pic{aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:linear-gradient(160deg,var(--green),var(--green-d));display:grid;place-items:center;color:#fff;font:900 46px var(--hd);margin-bottom:16px}
 .tm:nth-child(3n+2) .pic{background:linear-gradient(160deg,var(--orange),#a84f08)}
 .tm:nth-child(3n) .pic{background:linear-gradient(160deg,var(--sky),var(--blue))}
@@ -377,12 +386,15 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
   .tabbar{display:flex}
   .vgrid{grid-template-columns:1fr 1fr;gap:28px 0}
   .pgrid{grid-template-columns:1fr 1fr}
-  .tgrid{grid-template-columns:repeat(2,1fr)}
+  .tgrid{grid-template-columns:repeat(3,1fr)}
+  .dmsg{grid-template-columns:1fr;padding:24px;gap:24px}
+  .dmsg img{max-width:260px}
   .about,.mission,.contact{grid-template-columns:1fr;gap:44px}
   .mission .ph{max-width:520px}
   .fgrid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
+  .tgrid,.tgrid.lgrid3{grid-template-columns:repeat(2,1fr)}
   section{padding:64px 0}
   .wrap{padding:0 20px}
   .util{display:none}
@@ -436,6 +448,7 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
           <ul>
             <li><a href="#about" data-i="whyK">Why we exist</a></li>
             <li><a href="#objectives" data-i="objT">Our Objectives</a></li>
+            <li><a href="#leaders" data-i="ldT">Leadership</a></li>
             <li><a href="#team" data-i="teamT">Founding Members</a></li>
             <li><a href="#news" data-i="newsT">News &amp; Events</a></li>
             <li><a href="#contact" data-i="conK">Contact</a></li>
@@ -465,7 +478,7 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
   <h5 data-i="mWhat">What we do</h5>
   <a href="#programmes" data-i="progT">Our Programmes</a><a href="#map" data-i="mpK">Where we work</a><a href="#objectives" data-i="objT">Our Objectives</a><a href="#field" data-i="nField">From the field</a><a href="#learn" data-i="lrT">Wildlife Learning Corner</a>
   <h5 data-i="mAbout">About us</h5>
-  <a href="#about" data-i="whyK">Why we exist</a><a href="#team" data-i="teamT">Founding Members</a><a href="#news" data-i="newsT">News &amp; Events</a><a href="#contact" data-i="conK">Contact</a>
+  <a href="#about" data-i="whyK">Why we exist</a><a href="#leaders" data-i="ldT">Leadership</a><a href="#team" data-i="teamT">Founding Members</a><a href="#news" data-i="newsT">News &amp; Events</a><a href="#contact" data-i="conK">Contact</a>
   <h5 data-i="mInv">Get involved</h5>
   <a href="#involved" data-i="w1T">Volunteer</a><a href="#involved" data-i="w2T">Partner with us</a><a href="#" onclick="openMembers();return false" data-i="memLogin">👤 Members login</a>
 </div>
@@ -635,20 +648,42 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
   </div>
 </section>
 
+<!-- LEADERSHIP -->
+<section id="leaders">
+  <div class="wrap">
+    <div class="kicker" data-i="ldK">Uongozi</div>
+    <h2 class="h2" data-i="ldT">Leadership</h2>
+    <div class="dmsg">
+      <img src="img/geofrey.jpg" alt="Geofrey Raphael Malegesi, Director">
+      <div>
+        <div class="kicker" data-i="dmK">A message from our Director</div>
+        <blockquote>
+          <p data-i="dm1">Karibu! Welcome to Charity Foundation CFT Tanzania.</p>
+          <p data-i="dm2">We started CFT because we believe that protecting Tanzania's wildlife and natural resources goes hand in hand with improving the lives of the people who live alongside them. Our founding members bring many years of experience in conservation, community education and working with villages and schools near protected areas.</p>
+          <p data-i="dm3">Through our work in conservation, climate-smart agriculture, community empowerment, education and child protection, we want to help build communities that are stronger, healthier and better prepared for the future.</p>
+          <p data-i="dm4">We warmly invite communities, partners, volunteers and friends to walk this journey with us. Together, we can build a sustainable future for Tanzania.</p>
+        </blockquote>
+        <div class="dsig"><b>Geofrey Raphael Malegesi</b><span data-i="rDir">Director</span></div>
+      </div>
+    </div>
+    <div class="tgrid lgrid3">
+      <div class="tm lead"><div class="pic"><img src="img/hidaya.jpg" alt="Hidaya Hamis Danda" loading="lazy"></div><h3>Hidaya Hamis Danda</h3><div class="role" data-i="rOps">Operations Manager</div><p data-i="b7">Works in conservation fieldwork, community education and problem-animal control. Most of her work focuses on empowering women and children living near game reserves.</p></div>
+      <div class="tm lead"><div class="pic"><img src="img/vaileth.jpg" alt="Vaileth Priscus Mvungi" loading="lazy"></div><h3>Vaileth Priscus Mvungi</h3><div class="role" data-i="rAcc">Accountant</div><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- TEAM -->
 <section id="team" class="team-sec">
   <div class="wrap">
     <div class="kicker" data-i="teamK">Waanzilishi</div>
     <h2 class="h2" data-i="teamT">Founding Members</h2>
-    <p class="lead" data-i="teamP">Experienced conservationists and educators who work with communities living next to Tanzania's protected areas.</p>
+    <p class="lead" data-i="teamP2">Experienced conservationists and educators who work with communities living next to Tanzania's protected areas.</p>
     <div class="tgrid">
       <div class="tm"><div class="pic"><img src="img/happy.jpg" alt="Happy Frank Mollel" loading="lazy"></div><h3>Happy Frank Mollel</h3><p data-i="b1">Conserves wildlife through ecological monitoring and field-based assessments, and supervises tourism in protected areas. Gives conservation education to villagers next to protected areas and to students in nearby schools.</p></div>
-      <div class="tm"><div class="pic"><img src="img/marry.jpg" alt="Marry Stephen" loading="lazy"></div><h3>Marry Stephen</h3><p data-i="b3">Supports wildlife conservation and habitat protection through fieldwork and community engagement, and assists in controlling problem animals. Teaches villagers and school students practices that reduce human-wildlife conflict.</p></div>
       <div class="tm"><div class="pic"><img src="img/daud.jpg" alt="Daud Gunda" loading="lazy"></div><h3>Daud Gunda</h3><p data-i="b2">Carries out wildlife ecology and tourism work, including ecological assessment and monitoring, and produces GIS maps and spatial data for conservation planning. Develops wildlife teaching aids and gives conservation education to communities and students.</p></div>
-      <div class="tm"><div class="pic"><img src="img/vaileth.jpg" alt="Vaileth Priscus Mvungi" loading="lazy"></div><h3>Vaileth Priscus Mvungi</h3><div class="role" data-i="rAcc">Accountant</div><p data-i="b4">Supports conservation through fieldwork and community-based activities, and takes part in controlling problem animals. Gives conservation education to villagers and to students in nearby schools.</p></div>
+      <div class="tm"><div class="pic"><img src="img/marry.jpg" alt="Marry Stephen" loading="lazy"></div><h3>Marry Stephen</h3><p data-i="b3">Supports wildlife conservation and habitat protection through fieldwork and community engagement, and assists in controlling problem animals. Teaches villagers and school students practices that reduce human-wildlife conflict.</p></div>
       <div class="tm"><div class="pic"><img src="img/ziada.jpg" alt="Ziada Ally Kahando" loading="lazy"></div><h3>Ziada Ally Kahando</h3><p data-i="b5">More than 20 years in wildlife conservation, community conservation education and problem-animal control. Over four years in the store keeping unit at Malihai Clubs of Tanzania – Lake Zone.</p></div>
-      <div class="tm"><div class="pic"><img src="img/geofrey.jpg" alt="Geofrey Raphael Malegesi" loading="lazy"></div><h3>Geofrey Raphael Malegesi</h3><div class="role" data-i="rDir">Director</div><p data-i="b6">Supports wildlife conservation and habitat protection through field activities and community engagement, and assists in controlling problem animals. Gives conservation education to villagers and school students.</p></div>
-      <div class="tm"><div class="pic"><img src="img/hidaya.jpg" alt="Hidaya Hamis Danda" loading="lazy"></div><h3>Hidaya Hamis Danda</h3><div class="role" data-i="rOps">Operations Manager</div><p data-i="b7">Works in conservation fieldwork, community education and problem-animal control. Most of her work focuses on empowering women and children living near game reserves.</p></div>
       <div class="tm"><div class="pic"><img src="img/doreen.jpg" alt="Doreen Ruta" loading="lazy"></div><h3>Doreen Ruta</h3><p data-i="b8">Supports conservation through hands-on fieldwork and ecological observation, and helps oversee tourism in protected areas. Gives conservation lessons to communities and nearby schools.</p></div>
     </div>
   </div>
@@ -736,7 +771,7 @@ textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius
       <div><h4 data-i="mWhat">What we do</h4><ul>
         <li><a href="#programmes" data-i="progT">Our Programmes</a></li><li><a href="#map" data-i="mpK">Where we work</a></li><li><a href="#objectives" data-i="objT">Our Objectives</a></li><li><a href="#field" data-i="nField">From the field</a></li><li><a href="#learn" data-i="lrT">Wildlife Learning Corner</a></li></ul></div>
       <div><h4 data-i="mAbout">About us</h4><ul>
-        <li><a href="#about" data-i="whyK">Why we exist</a></li><li><a href="#team" data-i="teamT">Founding Members</a></li><li><a href="#news" data-i="newsT">News &amp; Events</a></li><li><a href="#" onclick="openMembers();return false" data-i="memLogin">👤 Members login</a></li></ul></div>
+        <li><a href="#about" data-i="whyK">Why we exist</a></li><li><a href="#leaders" data-i="ldT">Leadership</a></li><li><a href="#team" data-i="teamT">Founding Members</a></li><li><a href="#news" data-i="newsT">News &amp; Events</a></li><li><a href="#" onclick="openMembers();return false" data-i="memLogin">👤 Members login</a></li></ul></div>
       <div><h4 data-i="conK">Contact</h4><p>West Buhongwa Street, Buhongwa<br>Nyamagana, Mwanza, Tanzania<br>P.O. Box, Mwanza<br><a href="mailto:charityfoundationtanzaniacft@gmail.com">charityfoundationtanzaniacft@gmail.com</a></p></div>
     </div>
     <div class="copy"><span>© <span id="yr"></span> Charity Foundation CFT Tanzania</span><span data-i="madeTz">Mwanza, Tanzania</span></div>
@@ -930,6 +965,12 @@ const SW = {
   k1:"Jumla ya michango", k2:"Michango yako", thDate:"Tarehe", thMember:"Mwanachama", thPurpose:"Madhumuni", thAmount:"Kiasi",
   amount:"Kiasi (TSh)", purpose:"Madhumuni", oMonthly:"Mchango wa mwezi", oProject:"Mfuko wa mradi", oEmergency:"Msaada wa dharura", add:"Ongeza",
   install:"📲 Pakua programu",
+  ldK:"Leadership", ldT:"Uongozi", dmK:"Ujumbe kutoka kwa Mkurugenzi wetu",
+  dm1:"Karibu! Karibu Charity Foundation CFT Tanzania.",
+  dm2:"Tulianzisha CFT kwa sababu tunaamini kwamba kulinda wanyamapori na maliasili za Tanzania kunakwenda sambamba na kuboresha maisha ya watu wanaoishi pamoja nao. Wanachama wetu waanzilishi wana uzoefu wa miaka mingi katika uhifadhi, elimu kwa jamii na kufanya kazi na vijiji na shule zilizo jirani na maeneo yaliyohifadhiwa.",
+  dm3:"Kupitia kazi zetu katika uhifadhi, kilimo kinachohimili mabadiliko ya tabianchi, uwezeshaji wa jamii, elimu na ulinzi wa mtoto, tunataka kusaidia kujenga jamii imara zaidi, zenye afya bora na zilizojiandaa vyema kwa siku zijazo.",
+  dm4:"Tunawakaribisha kwa moyo mkunjufu jamii, wadau, wanaojitolea na marafiki kutembea safari hii pamoja nasi. Kwa pamoja, tunaweza kujenga mustakabali endelevu kwa Tanzania.",
+  teamP2:"Wahifadhi na waelimishaji wenye uzoefu wanaofanya kazi na jamii zinazoishi jirani na maeneo yaliyohifadhiwa nchini Tanzania.",
   mpK:"Tunapofanya kazi", mpT:"Shughuli zetu kote Tanzania", mpP:"CFT inafanya kazi na jamii, shule na wadau kote nchini. Bonyeza alama au mahali kwenye orodha kujua zaidi.", mpLoad:"Ramani inapakia…",
   msP:"Maeneo", msR:"Mikoa", msJ:"Miradi", tbM:"Maeneo ya ramani", plName:"Jina la mahali", plType:"Aina", plRegion:"Mkoa", plDesc:"Maelezo mafupi (Kiingereza)", plDescSw:"Maelezo mafupi kwa Kiswahili (si lazima)", plLoc:"Mahali", plPick:"📍 Chagua kwenye ramani", plAdd:"Ongeza kwenye ramani", plOn:"Yaliyo kwenye ramani",
   tyProj:"Eneo la mradi", tySch:"Shule", tyCom:"Jamii / kijiji", tyPar:"Mshirika", tyOff:"Ofisi", pickMsg:"📍 Bonyeza kwenye ramani kuchagua mahali",

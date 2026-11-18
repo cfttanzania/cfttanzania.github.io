@@ -1,5 +1,5 @@
 // Offline support: caches the site so the app opens without internet.
-const CACHE = 'cft-v15';
+const CACHE = 'cft-v18';
 const FILES = ['./', 'index.html', 'manifest.json', 'firebase-config.js', 'extras.js',
   'img/emblem.png', 'img/icon-192.png', 'img/icon-512.png', 'img/logo.jpg', 'img/hero.jpg',
   'img/trees.jpg', 'img/birds.jpg', 'img/garden.jpg', 'img/poultry.jpg',
